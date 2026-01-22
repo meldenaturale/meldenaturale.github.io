@@ -21,7 +21,7 @@ section.parallax {position:relative;background-attachment: fixed;background-posi
 #hero {background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80'); min-height:600px; font-size:3rem; }
 
 /* SABUNLAR */
-.sabunlar {padding:4rem 2rem 2rem; max-width:1200px; margin:0 auto; position:relative; z-index:1;}
+.sabunlar {padding:4rem 2rem 2rem; max-width:1200px; margin:0 auto; position:relative; z-index:1; background:#f0f8ff; border-radius:15px; overflow:hidden;}
 .sabunlar h2 {text-align:center; color:#004d40; margin-bottom:2rem; font-size:2.5rem; font-weight:700;}
 .sabun-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; z-index:1;}
 .sabun-kart {background:white; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); overflow:hidden; transition:transform 0.3s ease; cursor:pointer; display:block; text-decoration:none; color:inherit; position:relative; z-index:1;}
@@ -50,7 +50,7 @@ section.parallax {position:relative;background-attachment: fixed;background-posi
 .modal-content .fiyat {font-weight:700; color:#004d40; margin-top:1rem;}
 
 /* BALONCUKLAR */
-.bubble {position:absolute; border-radius:50%; background:rgba(255,255,255,0.5); pointer-events:none;}
+.bubble {position:absolute; border-radius:50%; background:rgba(255,255,255,0.5); pointer-events:none; transition:opacity 2s linear;}
 
 /* FOOTER */
 footer {text-align:center; padding:1rem 0; color:#777; font-size:0.9rem; background:#e0f2f1; margin-top:4rem;}
@@ -133,27 +133,27 @@ Doğanın Saflığını Hissedin
 <script>
 const bubbleCount = 30;
 const bubbles = [];
-const bubbleContainer = document.body;
+const bubbleContainer = document.querySelector('.sabunlar');
 
 class Bubble {
   constructor(){
-    this.size = Math.random() * 40 + 10; // 10-50px
-    this.y = Math.random() * window.innerHeight;
-    this.x = Math.random() * window.innerWidth;
-    this.speed = (Math.random() * 50 + 20)/100; // px/ms
-    this.depth = Math.random() * 0.5 + 0.5; // uzaklık parallax
+    this.size = Math.random() * 40 + 10;
+    this.y = Math.random() * bubbleContainer.offsetHeight;
+    this.x = Math.random() * bubbleContainer.offsetWidth;
+    this.speed = ((Math.random() * 50 + 20)/100)/2; // hızı yarıya indirdik
+    this.depth = Math.random() * 0.5 + 0.5;
     this.element = document.createElement('div');
     this.element.classList.add('bubble');
     this.element.style.width = this.size+'px';
     this.element.style.height = this.size+'px';
     this.element.style.top = this.y+'px';
     this.element.style.left = this.x+'px';
-    this.element.style.opacity = 0.3 + Math.random()*0.7;
+    this.element.style.opacity = 0.2 + Math.random()*0.5; // daha yavaş kaybolma
     bubbleContainer.appendChild(this.element);
   }
   update(deltaTime, scrollY){
     this.x -= this.speed * deltaTime;
-    if(this.x + this.size < 0) this.x = window.innerWidth;
+    if(this.x + this.size < 0) this.x = bubbleContainer.offsetWidth;
     let offset = scrollY * (1 - this.depth);
     this.element.style.transform = `translate(${this.x}px, ${offset}px)`;
   }
