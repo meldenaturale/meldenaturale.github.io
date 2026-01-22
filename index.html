@@ -22,17 +22,9 @@
     #hero {background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80'); min-height:600px; font-size:3rem; }
 
     /* SABUNLAR */
-    .sabunlar {
-      padding:4rem 2rem 2rem; 
-      max-width:1200px; 
-      margin:0 auto; 
-      background:#e0f7ff; 
-      border-radius:15px; 
-      position:relative; 
-      overflow:hidden;
-    }
+    .sabunlar {padding:4rem 2rem 2rem; max-width:1200px; margin:0 auto; position:relative; background:#e0f7fa; overflow:hidden;}
     .sabunlar h2 {text-align:center; color:#004d40; margin-bottom:2rem; font-size:2.5rem; font-weight:700;}
-    .sabun-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem;}
+    .sabun-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; position:relative; z-index:1;}
     .sabun-kart {background:white; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); overflow:hidden; transition:transform 0.3s ease; cursor:pointer; display:block; text-decoration:none; color:inherit;}
     .sabun-kart:hover {transform:translateY(-8px); box-shadow:0 12px 28px rgba(0,0,0,0.15);}
     .sabun-kart img {width:100%; height:200px; object-fit:cover; border-bottom:3px solid #008080;}
@@ -41,13 +33,15 @@
     .sabun-kart .icerik p {font-size:0.9rem; color:#555;}
     .sabun-kart .icerik .fiyat {margin-top:0.5rem; font-weight:700; color:#004d40;}
 
+    /* BALONCUKLAR */
+    .bubble {position:absolute; border-radius:50%; pointer-events:none; z-index:0;}
+
     /* CAROUSEL */
     .carousel-container {margin:3rem auto; max-width:1000px; overflow:hidden; position:relative; border-radius:15px; box-shadow:0 6px 20px rgba(0,0,0,0.15); background:white;}
-    .carousel-track {display:flex; width:max-content; animation: scroll-left 30s linear infinite;}
+    .carousel-track {display:flex; width:max-content; transition: transform 0.5s ease;}
     .carousel-item {min-width:300px; height:180px; margin:10px; border-radius:15px; overflow:hidden; flex-shrink:0; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease; cursor:pointer;}
     .carousel-item:hover {transform: scale(1.1); box-shadow:0 8px 20px rgba(0,0,0,0.25); z-index:10;}
     .carousel-item img {width:100%; height:100%; object-fit:cover; display:block;}
-    @keyframes scroll-left {0%{transform:translateX(0);}100%{transform:translateX(-50%);} }
 
     /* MODAL */
     .modal {display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; overflow:auto; background:rgba(0,0,0,0.6);}
@@ -57,15 +51,6 @@
     .modal-content h3 {margin-bottom:0.5rem; color:#00796b;}
     .modal-content p {color:#555;}
     .modal-content .fiyat {font-weight:700; color:#004d40; margin-top:1rem;}
-
-    /* BALONCUKLAR */
-    .bubble {
-      position:absolute;
-      border-radius:50%;
-      pointer-events:none;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), rgba(180,210,255,0.2));
-      transition: opacity 2s linear;
-    }
 
     /* FOOTER */
     footer {text-align:center; padding:1rem 0; color:#777; font-size:0.9rem; background:#e0f2f1; margin-top:4rem;}
@@ -97,7 +82,7 @@
 
 <!-- CAROUSEL -->
 <div class="carousel-container" aria-label="Sabun Galerisi">
-  <div class="carousel-track" aria-live="polite">
+  <div class="carousel-track" id="carouselTrack" aria-live="polite">
     <div class="carousel-item" onclick="urunModal('Zeytinyağlı Sabun','120₺','Soğuk proses yöntemiyle, saf zeytinyağı ve şifalı yağlarla üretilir. Cildi nemlendirir ve doğal koruma sağlar.','https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=600&q=80')">
       <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=600&q=80" alt="Zeytinyağlı Sabun" />
     </div>
@@ -186,7 +171,7 @@
 </footer>
 
 <script>
-  // MODAL
+  // Modal
   function urunModal(isim, fiyat, aciklama, resim) {
     document.getElementById('modal-title').innerText = isim;
     document.getElementById('modal-price').innerText = fiyat;
@@ -194,15 +179,37 @@
     document.getElementById('modal-img').src = resim;
     document.getElementById('urunModal').style.display = 'block';
   }
+
   function closeModal() {
     document.getElementById('urunModal').style.display = 'none';
   }
+
   window.onclick = function(event) {
     let modal = document.getElementById('urunModal');
     if(event.target == modal) modal.style.display = 'none';
   }
 
-  // BALONCUKLAR
+  // Carousel
+  const carouselTrack = document.getElementById('carouselTrack');
+  const items = carouselTrack.querySelectorAll('.carousel-item');
+  let currentIndex = 0;
+  const itemWidth = items[0].offsetWidth + 20;
+  const maxIndex = items.length;
+
+  function moveCarousel() {
+    if(currentIndex < maxIndex){
+      carouselTrack.style.transition = 'transform 0.5s ease';
+      carouselTrack.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
+      currentIndex++;
+    } else {
+      carouselTrack.style.transition = 'none';
+      carouselTrack.style.transform = `translateX(-${itemWidth * (maxIndex-1)}px)`;
+      currentIndex = maxIndex;
+    }
+  }
+  setInterval(moveCarousel, 2500);
+
+  // Baloncuklar
   const bubbleContainer = document.querySelector('.sabunlar');
   const bubbleCount = 30;
   const bubbles = [];
@@ -214,16 +221,13 @@
       this.y = Math.random() * bubbleContainer.offsetHeight;
       this.depth = Math.random() * 0.7 + 0.3;
       this.speed = ((Math.random() * 50 + 20)/100)/2 * this.depth;
-      this.opacity = 0.2 + this.depth * 0.5;
-      this.blur = 1 + (1 - this.depth) * 3;
       this.element = document.createElement('div');
       this.element.classList.add('bubble');
       this.element.style.width = this.size + 'px';
       this.element.style.height = this.size + 'px';
       this.element.style.top = this.y + 'px';
       this.element.style.left = this.x + 'px';
-      this.element.style.opacity = this.opacity;
-      this.element.style.filter = `blur(${this.blur}px)`;
+      this.element.style.background = 'rgba(255,255,255,0.7)';
       bubbleContainer.appendChild(this.element);
     }
     update(deltaTime, scrollY) {
