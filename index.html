@@ -42,6 +42,15 @@
 
     @keyframes scroll-left {0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
+    /* MODAL */
+    .modal {display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; overflow:auto; background:rgba(0,0,0,0.6);}
+    .modal-content {background:#fff; margin:10% auto; padding:2rem; border-radius:12px; width:90%; max-width:500px; position:relative; box-shadow:0 10px 30px rgba(0,0,0,0.3);}
+    .close-btn {position:absolute; top:10px; right:15px; font-size:1.5rem; font-weight:bold; color:#555; cursor:pointer;}
+    .modal-content img {width:100%; border-radius:8px; margin-bottom:1rem;}
+    .modal-content h3 {margin-bottom:0.5rem; color:#00796b;}
+    .modal-content p {color:#555;}
+    .modal-content .fiyat {font-weight:700; color:#004d40; margin-top:1rem;}
+
     /* FOOTER */
     footer {text-align:center; padding:1rem 0; color:#777; font-size:0.9rem; background:#e0f2f1; margin-top:4rem;}
 
@@ -51,6 +60,7 @@
       nav a {font-size:0.9rem; margin-left:1rem;}
       .sabun-kart img {height:150px;}
       .carousel-item {min-width:200px; height:140px;}
+      .modal-content {margin:20% auto; padding:1rem;}
     }
   </style>
 </head>
@@ -72,11 +82,21 @@
 <!-- CAROUSEL -->
 <div class="carousel-container" aria-label="Sabun Galerisi">
   <div class="carousel-track" aria-live="polite">
-    <div class="carousel-item" onclick="urunPopup('Zeytinyağlı Sabun', '120₺')"><img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=600&q=80" alt="Zeytinyağlı Sabun" /></div>
-    <div class="carousel-item" onclick="urunPopup('Lavanta Sabunu', '90₺')"><img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&w=600&q=80" alt="Lavanta Sabunu" /></div>
-    <div class="carousel-item" onclick="urunPopup('Ballı Sabun', '110₺')"><img src="https://images.unsplash.com/photo-1510626176961-4bfb5e71d8a7?auto=format&w=600&q=80" alt="Ballı Sabun" /></div>
-    <div class="carousel-item" onclick="urunPopup('Nane Sabunu', '95₺')"><img src="https://images.unsplash.com/photo-1465188035480-4e99bfc4b42f?auto=format&w=600&q=80" alt="Nane Sabunu" /></div>
-    <div class="carousel-item" onclick="urunPopup('Gül Sabunu', '130₺')"><img src="https://images.unsplash.com/photo-1511732354216-00e256bc232b?auto=format&w=600&q=80" alt="Gül Sabunu" /></div>
+    <div class="carousel-item" onclick="urunModal('Zeytinyağlı Sabun','120₺','Soğuk proses yöntemiyle, saf zeytinyağı ve şifalı yağlarla üretilir. Cildi nemlendirir ve doğal koruma sağlar.','https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=600&q=80')">
+      <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=600&q=80" alt="Zeytinyağlı Sabun" />
+    </div>
+    <div class="carousel-item" onclick="urunModal('Lavanta Sabunu','90₺','Rahatlatıcı lavanta esanslarıyla, cildi yatıştırır ve hoş bir koku bırakır.','https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&w=600&q=80')">
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&w=600&q=80" alt="Lavanta Sabunu" />
+    </div>
+    <div class="carousel-item" onclick="urunModal('Ballı Sabun','110₺','Nemlendirici bal özü ile zenginleştirilmiş, cildi besler ve canlandırır.','https://images.unsplash.com/photo-1510626176961-4bfb5e71d8a7?auto=format&w=600&q=80')">
+      <img src="https://images.unsplash.com/photo-1510626176961-4bfb5e71d8a7?auto=format&w=600&q=80" alt="Ballı Sabun" />
+    </div>
+    <div class="carousel-item" onclick="urunModal('Nane Sabunu','95₺','Ferahlatıcı nane yağı ile cildi tazeler ve serinletir.','https://images.unsplash.com/photo-1465188035480-4e99bfc4b42f?auto=format&w=600&q=80')">
+      <img src="https://images.unsplash.com/photo-1465188035480-4e99bfc4b42f?auto=format&w=600&q=80" alt="Nane Sabunu" />
+    </div>
+    <div class="carousel-item" onclick="urunModal('Gül Sabunu','130₺','Doğal gül özleriyle zenginleştirilmiş, cilde yumuşaklık ve parlaklık verir.','https://images.unsplash.com/photo-1511732354216-00e256bc232b?auto=format&fit=crop&w=600&q=80')">
+      <img src="https://images.unsplash.com/photo-1511732354216-00e256bc232b?auto=format&fit=crop&w=600&q=80" alt="Gül Sabunu" />
+    </div>
   </div>
 </div>
 
@@ -84,7 +104,7 @@
 <section id="sabunlar" class="sabunlar">
   <h2>Sabun Türleri</h2>
   <div class="sabun-grid">
-    <div class="sabun-kart" onclick="urunPopup('Zeytinyağlı Sabun', '120₺')" tabindex="0" aria-label="Zeytinyağlı Sabun">
+    <div class="sabun-kart" onclick="urunModal('Zeytinyağlı Sabun','120₺','Soğuk proses yöntemiyle, saf zeytinyağı ve şifalı yağlarla üretilir. Cildi nemlendirir ve doğal koruma sağlar.','https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=600&q=80')" tabindex="0">
       <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=600&q=80" alt="Zeytinyağlı Sabun" />
       <div class="icerik">
         <h3>Zeytinyağlı Sabun</h3>
@@ -92,31 +112,31 @@
         <div class="fiyat">120₺</div>
       </div>
     </div>
-    <div class="sabun-kart" onclick="urunPopup('Lavanta Sabunu', '90₺')" tabindex="0" aria-label="Lavanta Sabunu">
-      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=80" alt="Lavanta Sabunu" />
+    <div class="sabun-kart" onclick="urunModal('Lavanta Sabunu','90₺','Rahatlatıcı lavanta esanslarıyla, cildi yatıştırır ve hoş bir koku bırakır.','https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&w=600&q=80')" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&w=600&q=80" alt="Lavanta Sabunu" />
       <div class="icerik">
         <h3>Lavanta Sabunu</h3>
         <p>Rahatlatıcı lavanta esanslarıyla, cildi yatıştırır ve hoş bir koku bırakır.</p>
         <div class="fiyat">90₺</div>
       </div>
     </div>
-    <div class="sabun-kart" onclick="urunPopup('Ballı Sabun', '110₺')" tabindex="0" aria-label="Ballı Sabun">
-      <img src="https://images.unsplash.com/photo-1510626176961-4bfb5e71d8a7?auto=format&fit=crop&w=600&q=80" alt="Ballı Sabun" />
+    <div class="sabun-kart" onclick="urunModal('Ballı Sabun','110₺','Nemlendirici bal özü ile zenginleştirilmiş, cildi besler ve canlandırır.','https://images.unsplash.com/photo-1510626176961-4bfb5e71d8a7?auto=format&w=600&q=80')" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1510626176961-4bfb5e71d8a7?auto=format&w=600&q=80" alt="Ballı Sabun" />
       <div class="icerik">
         <h3>Ballı Sabun</h3>
         <p>Nemlendirici bal özü ile zenginleştirilmiş, cildi besler ve canlandırır.</p>
         <div class="fiyat">110₺</div>
       </div>
     </div>
-    <div class="sabun-kart" onclick="urunPopup('Nane Sabunu', '95₺')" tabindex="0" aria-label="Nane Sabunu">
-      <img src="https://images.unsplash.com/photo-1465188035480-4e99bfc4b42f?auto=format&fit=crop&w=600&q=80" alt="Nane Sabunu" />
+    <div class="sabun-kart" onclick="urunModal('Nane Sabunu','95₺','Ferahlatıcı nane yağı ile cildi tazeler ve serinletir.','https://images.unsplash.com/photo-1465188035480-4e99bfc4b42f?auto=format&w=600&q=80')" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1465188035480-4e99bfc4b42f?auto=format&w=600&q=80" alt="Nane Sabunu" />
       <div class="icerik">
         <h3>Nane Sabunu</h3>
         <p>Ferahlatıcı nane yağı ile cildi tazeler ve serinletir.</p>
         <div class="fiyat">95₺</div>
       </div>
     </div>
-    <div class="sabun-kart" onclick="urunPopup('Gül Sabunu', '130₺')" tabindex="0" aria-label="Gül Sabunu">
+    <div class="sabun-kart" onclick="urunModal('Gül Sabunu','130₺','Doğal gül özleriyle zenginleştirilmiş, cilde yumuşaklık ve parlaklık verir.','https://images.unsplash.com/photo-1511732354216-00e256bc232b?auto=format&fit=crop&w=600&q=80')" tabindex="0">
       <img src="https://images.unsplash.com/photo-1511732354216-00e256bc232b?auto=format&fit=crop&w=600&q=80" alt="Gül Sabunu" />
       <div class="icerik">
         <h3>Gül Sabunu</h3>
@@ -126,6 +146,17 @@
     </div>
   </div>
 </section>
+
+<!-- MODAL -->
+<div id="urunModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img id="modal-img" src="" alt="Ürün Görseli" />
+    <h3 id="modal-title"></h3>
+    <p id="modal-desc"></p>
+    <div class="fiyat" id="modal-price"></div>
+  </div>
+</div>
 
 <section id="iletisim" style="background:#004d40; color:white; padding:2rem 1rem; text-align:center;">
   <h2>İletişim</h2>
@@ -139,9 +170,24 @@
 </footer>
 
 <script>
-  // Tıklanınca ürün detay gösterimi (tek dosya için basit)
-  function urunPopup(isim, fiyat) {
-    alert(isim + "\nFiyat: " + fiyat + "\n\nDetaylı ürün sayfası hazırlanacak.");
+  function urunModal(isim, fiyat, aciklama, resim) {
+    document.getElementById('modal-title').innerText = isim;
+    document.getElementById('modal-price').innerText = fiyat;
+    document.getElementById('modal-desc').innerText = aciklama;
+    document.getElementById('modal-img').src = resim;
+    document.getElementById('urunModal').style.display = 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('urunModal').style.display = 'none';
+  }
+
+  // Modal dışına tıklandığında kapatma
+  window.onclick = function(event) {
+    let modal = document.getElementById('urunModal');
+    if(event.target == modal) {
+      modal.style.display = 'none';
+    }
   }
 </script>
 
