@@ -50,7 +50,7 @@ section.parallax {position:relative;background-attachment: fixed;background-posi
 .modal-content .fiyat {font-weight:700; color:#004d40; margin-top:1rem;}
 
 /* BALONCUKLAR */
-.bubble {position:absolute; border-radius:50%; background:rgba(255,255,255,0.5); pointer-events:none; transition:opacity 2s linear;}
+.bubble {position:absolute; border-radius:50%; pointer-events:none; transition:opacity 2s linear; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), rgba(180,210,255,0.2)); filter: blur(1.5px);}
 
 /* FOOTER */
 footer {text-align:center; padding:1rem 0; color:#777; font-size:0.9rem; background:#e0f2f1; margin-top:4rem;}
@@ -140,15 +140,18 @@ class Bubble {
     this.size = Math.random() * 40 + 10;
     this.y = Math.random() * bubbleContainer.offsetHeight;
     this.x = Math.random() * bubbleContainer.offsetWidth;
-    this.speed = ((Math.random() * 50 + 20)/100)/2; // hızı yarıya indirdik
-    this.depth = Math.random() * 0.5 + 0.5;
+    this.speed = ((Math.random() * 50 + 20)/100)/2; // hız yarıya indirildi
+    this.depth = Math.random() * 0.7 + 0.3; // 0.3 küçük, 1 yakın
+    this.blur = 1.5 + (1 - this.depth) * 3; // uzak baloncuk daha flu
+    this.opacity = 0.2 + this.depth * 0.5;
     this.element = document.createElement('div');
     this.element.classList.add('bubble');
-    this.element.style.width = this.size+'px';
-    this.element.style.height = this.size+'px';
-    this.element.style.top = this.y+'px';
-    this.element.style.left = this.x+'px';
-    this.element.style.opacity = 0.2 + Math.random()*0.5; // daha yavaş kaybolma
+    this.element.style.width=this.size+'px';
+    this.element.style.height=this.size+'px';
+    this.element.style.top=this.y+'px';
+    this.element.style.left=this.x+'px';
+    this.element.style.opacity=this.opacity;
+    this.element.style.filter=`blur(${this.blur}px)`;
     bubbleContainer.appendChild(this.element);
   }
   update(deltaTime, scrollY){
