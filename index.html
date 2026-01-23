@@ -20,11 +20,13 @@
   #hero {background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80'); min-height:600px; font-size:3rem; }
 
   /* SABUNLAR */
-  .sabunlar {padding:4rem 2rem 2rem; max-width:1000px; margin:0 auto; position:relative; background:rgba(224,247,250,0.5); overflow:hidden;}
-  .sabunlar h2 {text-align:center; color:#004d40; margin-bottom:2rem; font-size:2.5rem; font-weight:700;}
+  /* Arka plan daha doygun yapıldı */
+  .sabunlar {padding:4rem 2rem 2rem; max-width:1000px; margin:0 auto; position:relative; background:rgba(128, 222, 234, 0.7); overflow:hidden;}
+  /* Başlık ön plana alındı (z-index eklendi) */
+  .sabunlar h2 {text-align:center; color:#004d40; margin-bottom:2rem; font-size:2.5rem; font-weight:700; position:relative; z-index:2;}
   .sabun-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; position:relative; z-index:1;}
   
-  /* HOVER EFEKTİ GÜNCELLENDİ */
+  /* HOVER EFEKTİ */
   .sabun-kart {background:rgba(255,255,255,0.5); border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); overflow:hidden; transition:transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer; display:block; text-decoration:none; color:inherit;}
   .sabun-kart:hover {transform:translateY(-12px); box-shadow:0 12px 28px rgba(0,0,0,0.2);}
   
@@ -34,7 +36,7 @@
   .sabun-kart .icerik p {font-size:0.9rem; color:#555;}
   .sabun-kart .icerik .fiyat {margin-top:0.5rem; font-weight:700; color:#004d40;}
 
-  /* YENİ: DOĞAL YAĞLAR BÖLÜMÜ */
+  /* DOĞAL YAĞLAR BÖLÜMÜ */
   .dogal-yaglar {padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; text-align: center;}
   .dogal-yaglar h2 {color: #004d40; margin-bottom: 2rem; font-size: 2rem;}
   .yag-liste {display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;}
@@ -135,6 +137,46 @@
         <div class="fiyat">110₺</div>
       </div>
     </div>
+    <div class="sabun-kart" onclick="showProduct('Bıttım Sabunu', 'Siirt yöresine has bıttım yağı ile üretilmiştir. Saç dökülmesine ve kepeğe karşı etkilidir.', '130₺', 'https://images.unsplash.com/photo-1600857062241-98e5dbae7212?auto=format&w=600&q=80')">
+        <img src="https://images.unsplash.com/photo-1600857062241-98e5dbae7212?auto=format&w=600&q=80" alt="Bıttım Sabunu">
+        <div class="icerik">
+          <h3>Bıttım Sabunu</h3>
+          <p>Saç ve cilt sağlığı için geleneksel çözüm.</p>
+          <div class="fiyat">130₺</div>
+        </div>
+      </div>
+    <div class="sabun-kart" onclick="showProduct('Keçi Sütü Sabunu', 'Anne sütüne en yakın süt olan keçi sütü ile cildinizi şımartın. Hassas ciltler için idealdir.', '100₺', 'https://images.unsplash.com/photo-1570194178391-a1793674f19d?auto=format&w=600&q=80')">
+        <img src="https://images.unsplash.com/photo-1570194178391-a1793674f19d?auto=format&w=600&q=80" alt="Keçi Sütü Sabunu">
+        <div class="icerik">
+          <h3>Keçi Sütü Sabunu</h3>
+          <p>Hassas ciltler için yumuşak dokunuş.</p>
+          <div class="fiyat">100₺</div>
+        </div>
+      </div>
+    <div class="sabun-kart" onclick="showProduct('Kükürtlü Sabun', 'Akne ve yağlı cilt problemlerine karşı doğal bir savaşçıdır. Cildi derinlemesine arındırır.', '85₺', 'https://images.unsplash.com/photo-1607006483592-b20d7141be27?auto=format&w=600&q=80')">
+        <img src="https://images.unsplash.com/photo-1607006483592-b20d7141be27?auto=format&w=600&q=80" alt="Kükürtlü Sabun">
+        <div class="icerik">
+          <h3>Kükürtlü Sabun</h3>
+          <p>Yağlı ciltler ve akne karşıtı.</p>
+          <div class="fiyat">85₺</div>
+        </div>
+      </div>
+    <div class="sabun-kart" onclick="showProduct('Defne Sabunu', 'Antakya\'nın meşhur defne yağı ile üretilmiştir. Vücudu rahatlatır, gözenekleri açar.', '115₺', 'https://images.unsplash.com/photo-1584305574647-0cc951b21b33?auto=format&w=600&q=80')">
+        <img src="https://images.unsplash.com/photo-1584305574647-0cc951b21b33?auto=format&w=600&q=80" alt="Defne Sabunu">
+        <div class="icerik">
+          <h3>Defne Sabunu</h3>
+          <p>Geleneksel Antakya defne mucizesi.</p>
+          <div class="fiyat">115₺</div>
+        </div>
+      </div>
+    <div class="sabun-kart" onclick="showProduct('Gül Sabunu', 'Gerçek gül yaprakları ve yağı ile cildinize romantik bir bakım sunar. Hoş kokuludur.', '95₺', 'https://images.unsplash.com/photo-1590667508255-80745885501c?auto=format&w=600&q=80')">
+        <img src="https://images.unsplash.com/photo-1590667508255-80745885501c?auto=format&w=600&q=80" alt="Gül Sabunu">
+        <div class="icerik">
+          <h3>Gül Sabunu</h3>
+          <p>Zarif koku ve nazik temizlik.</p>
+          <div class="fiyat">95₺</div>
+        </div>
+      </div>
   </div>
 </section>
 
