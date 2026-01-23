@@ -3,63 +3,85 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Melde Naturale | Doğal Sabunlar</title>
+<title>Melde Naturale</title>
 <style>
   * { box-sizing: border-box; margin:0; padding:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth;}
   body { background: #f0f8ff; color:#333; line-height:1.6; overflow-x:hidden;}
   a { color:#008080; text-decoration:none;}
+  a:hover { text-decoration:underline;}
 
   /* HEADER */
   header {position: fixed; width:100%; background:rgba(255,255,255,0.9); backdrop-filter:blur(8px); box-shadow:0 2px 5px rgba(0,0,0,0.1); z-index:999; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center;}
   header h1 {font-weight:700; font-size:1.5rem; color:#00695c;}
   nav a {margin-left:1.5rem; font-weight:600; font-size:1rem;}
 
-  /* PARALLAX & HERO */
+  /* PARALLAX */
   section.parallax {position:relative; background-attachment: fixed; background-position:center; background-repeat:no-repeat; background-size:cover; min-height:400px; display:flex; align-items:center; justify-content:center; color:white; text-shadow:1px 1px 6px rgba(0,0,0,0.7); font-size:2rem; font-weight:700;}
   #hero {background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80'); min-height:600px; font-size:3rem; }
 
   /* SABUNLAR */
-  .sabunlar {padding:4rem 2rem; max-width:1000px; margin:0 auto; position:relative; overflow:hidden;}
-  .sabunlar h2 {text-align:center; color:#004d40; margin-bottom:2rem; font-size:2.5rem;}
+  .sabunlar {padding:4rem 2rem 2rem; max-width:1000px; margin:0 auto; position:relative; background:rgba(224,247,250,0.5); overflow:hidden;}
+  .sabunlar h2 {text-align:center; color:#004d40; margin-bottom:2rem; font-size:2.5rem; font-weight:700;}
   .sabun-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; position:relative; z-index:1;}
   
-  /* HOVER EFEKTİ */
-  .sabun-kart {background:rgba(255,255,255,0.6); border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); overflow:hidden; transition:transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;}
-  .sabun-kart:hover {transform:translateY(-10px); box-shadow:0 12px 28px rgba(0,0,0,0.2);}
+  /* HOVER EFEKTİ GÜNCELLENDİ */
+  .sabun-kart {background:rgba(255,255,255,0.5); border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); overflow:hidden; transition:transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer; display:block; text-decoration:none; color:inherit;}
+  .sabun-kart:hover {transform:translateY(-12px); box-shadow:0 12px 28px rgba(0,0,0,0.2);}
+  
   .sabun-kart img {width:100%; height:180px; object-fit:cover; border-bottom:3px solid #008080;}
-  .sabun-kart .icerik {padding:1rem;}
-  .sabun-kart h3 {color:#00796b; margin-bottom:0.5rem;}
-  .sabun-kart .fiyat {font-weight:700; color:#004d40; margin-top:0.5rem;}
+  .sabun-kart .icerik {padding:1rem 1rem 1rem;}
+  .sabun-kart .icerik h3 {color:#00796b; margin-bottom:0.5rem;}
+  .sabun-kart .icerik p {font-size:0.9rem; color:#555;}
+  .sabun-kart .icerik .fiyat {margin-top:0.5rem; font-weight:700; color:#004d40;}
 
-  /* DOĞAL YAĞLAR BÖLÜMÜ */
-  .yaglar-section {background: #e0f2f1; padding: 4rem 2rem; text-align: center;}
-  .yaglar-section h2 {color: #004d40; margin-bottom: 2rem; font-size: 2rem;}
-  .yag-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;}
-  .yag-item {background: white; padding: 1.5rem; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);}
-  .yag-item strong {display: block; color: #008080; font-size: 1.1rem; margin-bottom: 0.5rem;}
-  .yag-item p {font-size: 0.9rem; color: #555;}
+  /* YENİ: DOĞAL YAĞLAR BÖLÜMÜ */
+  .dogal-yaglar {padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; text-align: center;}
+  .dogal-yaglar h2 {color: #004d40; margin-bottom: 2rem; font-size: 2rem;}
+  .yag-liste {display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;}
+  .yag-kart {background: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); width: 220px;}
+  .yag-kart h4 {color: #008080; margin-bottom: 0.5rem;}
+  .yag-kart p {font-size: 0.85rem; color: #666;}
 
-  /* MODAL */
-  .modal {display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.7); align-items: center; justify-content: center;}
-  .modal-content {background:#fff; padding:2rem; border-radius:12px; width:90%; max-width:500px; position:relative; animation: fadeIn 0.3s;}
-  .close-btn {position:absolute; top:10px; right:15px; font-size:1.8rem; cursor:pointer; color:#555;}
-  .modal-content img {width:100%; border-radius:8px; margin-bottom:1rem;}
-  @keyframes fadeIn { from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);} }
+  /* CAROUSEL */
+  .carousel-container {margin:3rem auto; max-width:1000px; overflow:hidden; position:relative; border-radius:15px; background:white; padding:20px 0;}
+  .carousel-track {display:flex; width:calc(250px * 10); animation: scroll 20s linear infinite;}
+  .slide {width:250px; height:150px; display:flex; align-items:center; justify-content:center; padding:10px;}
+  .slide img {width:100%; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1);}
+  @keyframes scroll {0% { transform: translateX(0);} 100% { transform: translateX(calc(-250px * 5)); }}
+  .carousel-container:hover .carousel-track {animation-play-state: paused;}
 
   /* BALONCUKLAR */
-  .bubble {position:absolute; border-radius:50%; pointer-events:none; z-index:0; background: rgba(255,255,255,0.8); box-shadow: inset 0 0 5px rgba(255,255,255,0.5);}
+  .bubble {position:absolute; border-radius:50%; pointer-events:none; z-index:0; background: rgba(255,255,255,0.8); filter: drop-shadow(0 0 4px rgba(255,255,255,0.5));}
+
+  /* MODAL */
+  .modal {display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; overflow:auto; background:rgba(0,0,0,0.6); align-items:center; justify-content:center;}
+  .modal-content {background:#fff; padding:2rem; border-radius:12px; width:90%; max-width:500px; position:relative; box-shadow:0 10px 30px rgba(0,0,0,0.3); animation: zoomIn 0.3s ease;}
+  @keyframes zoomIn { from {transform: scale(0.9); opacity:0;} to {transform: scale(1); opacity:1;} }
+  .close-btn {position:absolute; top:10px; right:15px; font-size:1.5rem; font-weight:bold; color:#555; cursor:pointer;}
+  .modal-content img {width:100%; border-radius:8px; margin-bottom:1rem; height: 250px; object-fit: cover;}
+  .modal-content h3 {margin-bottom:0.5rem; color:#00796b;}
+  .modal-content p {color:#555;}
+  .modal-content .fiyat {font-weight:700; color:#004d40; margin-top:1rem; font-size: 1.2rem;}
 
   /* İLETİŞİM & FOOTER */
-  section#iletisim {background:#004d40; color:white; padding:3rem 1rem; text-align:center;}
-  footer {text-align:center; padding:1rem 0; color:#777; background:#e0f2f1;}
+  section#iletisim {background:#004d40; color:white; padding:2rem 1rem; text-align:center;}
+  section#iletisim a {color:#80cbc4;}
+  footer {text-align:center; padding:1rem 0; color:#777; font-size:0.9rem; background:#e0f2f1; margin-top:4rem;}
 
-  @media (max-width:600px) { #hero { font-size: 2rem; min-height: 400px; } }
+  /* Responsive */
+  @media (max-width:600px) {
+    header h1 {font-size:1.2rem;}
+    nav a {font-size:0.9rem; margin-left:1rem;}
+    .sabun-kart img {height:150px;}
+    .slide {width:200px; height:140px;}
+    .modal-content {width:95%; padding:1.5rem;}
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Melde Naturale</h1>
+  <h1>Melde Naturale, Doğal Sabunları</h1>
   <nav>
     <a href="#hero">Anasayfa</a>
     <a href="#sabunlar">Sabunlar</a>
@@ -71,73 +93,83 @@
   Doğanın Saflığını Hissedin
 </section>
 
+<div class="carousel-container" aria-label="Sabun Galerisi">
+  <div class="carousel-track">
+    <div class="slide"><img src="https://picsum.photos/250/150?random=1" alt=""></div>
+    <div class="slide"><img src="https://picsum.photos/250/150?random=2" alt=""></div>
+    <div class="slide"><img src="https://picsum.photos/250/150?random=3" alt=""></div>
+    <div class="slide"><img src="https://picsum.photos/250/150?random=4" alt=""></div>
+    <div class="slide"><img src="https://picsum.photos/250/150?random=5" alt=""></div>
+    <div class="slide"><img src="https://picsum.photos/250/150?random=1" alt=""></div>
+    <div class="slide"><img src="https://picsum.photos/250/150?random=2" alt=""></div>
+    <div class="slide"><img src="https://picsum.photos/250/150?random=3" alt=""></div>
+    <div class="slide"><img src="https://picsum.photos/250/150?random=4" alt=""></div>
+    <div class="slide"><img src="https://picsum.photos/250/150?random=5" alt=""></div>
+  </div>
+</div>
+
 <section id="sabunlar" class="sabunlar">
-  <div id="bubble-container"></div>
-  <h2>Sabun Türlerimiz</h2>
+  <h2>Sabun Türleri</h2>
   <div class="sabun-grid">
-    <div class="sabun-kart" onclick="openModal('Zeytinyağlı Sabun', 'Ege topraklarından gelen saf zeytinyağı ile cildinizi derinlemesine nemlendirin.', '120₺', 'https://images.unsplash.com/photo-1542831371-d531d36971e6?w=600')">
-      <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?w=600" alt="Zeytinyağlı">
+    <div class="sabun-kart" onclick="showProduct('Zeytinyağlı Sabun', 'Soğuk sıkım zeytinyağı ile hazırlanan bu sabun, cildinizi kurutmadan temizler ve E vitamini desteği sağlar.', '120₺', 'https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=600&q=80')">
+      <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=600&q=80" alt="Zeytinyağlı Sabun">
       <div class="icerik">
         <h3>Zeytinyağlı Sabun</h3>
-        <p>Saf şifa kaynağı.</p>
+        <p>Saf zeytinyağı ve şifalı yağlarla üretilir.</p>
         <div class="fiyat">120₺</div>
       </div>
     </div>
-    <div class="sabun-kart" onclick="openModal('Lavanta Sabunu', 'Uykudan önce kullanımda rahatlatıcı etkisiyle bilinir, cildi yatıştırır.', '90₺', 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600')">
-      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600" alt="Lavanta">
+    <div class="sabun-kart" onclick="showProduct('Lavanta Sabunu', 'Taze lavanta çiçeklerinden elde edilen yağlarla, banyonuzda spa etkisi yaratır ve cildinizi yatıştırır.', '90₺', 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&w=600&q=80')">
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&w=600&q=80" alt="Lavanta Sabunu">
       <div class="icerik">
         <h3>Lavanta Sabunu</h3>
-        <p>Huzur veren koku.</p>
+        <p>Cildi yatıştırır ve hoş bir koku bırakır.</p>
         <div class="fiyat">90₺</div>
       </div>
     </div>
-    <div class="sabun-kart" onclick="openModal('Ballı Sabun', 'Doğal bal özleri sayesinde cildinize doğal bir parlaklık ve yumuşaklık verir.', '110₺', 'https://images.unsplash.com/photo-1510626176961-4bfb5e71d8a7?w=600')">
-      <img src="https://images.unsplash.com/photo-1510626176961-4bfb5e71d8a7?w=600" alt="Ballı">
+    <div class="sabun-kart" onclick="showProduct('Ballı Sabun', 'Doğal bal ve arı sütü özleri içeren formülü, kuru ciltler için mükemmel bir nemlendiricidir.', '110₺', 'https://images.unsplash.com/photo-1510626176961-4bfb5e71d8a7?auto=format&w=600&q=80')">
+      <img src="https://images.unsplash.com/photo-1510626176961-4bfb5e71d8a7?auto=format&w=600&q=80" alt="Ballı Sabun">
       <div class="icerik">
         <h3>Ballı Sabun</h3>
-        <p>Besleyici ve canlı.</p>
+        <p>Cildi besler ve canlandırır.</p>
         <div class="fiyat">110₺</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="yaglar-section">
-  <h2>İçeriğimizdeki Mucizeler</h2>
-  <div class="yag-grid">
-    <div class="yag-item">
-      <strong>Kantaron Yağı</strong>
-      <p>Hücre yenileyici özelliği ile cilt lekelerine ve yaralara karşı etkilidir.</p>
+<section class="dogal-yaglar">
+  <h2>Kullandığımız Doğal Yağlar</h2>
+  <div class="yag-liste">
+    <div class="yag-kart">
+      <h4>Kantaron Yağı</h4>
+      <p>Hücre yenilenmesine yardımcı olur, cilt lekelerini hafifletir.</p>
     </div>
-    <div class="yag-item">
-      <strong>Ardıç Katranı</strong>
-      <p>Cilt sorunlarında, özellikle kaşıntı ve döküntülerde doğal bir destekçidir.</p>
+    <div class="yag-kart">
+      <h4>Hindistan Cevizi</h4>
+      <p>Cilde derinlemesine nem sağlar ve doğal parlaklık verir.</p>
     </div>
-    <div class="yag-item">
-      <strong>Hindistan Cevizi Yağı</strong>
-      <p>Cildi derinlemesine nemlendirir ve koruyucu bir bariyer oluşturur.</p>
-    </div>
-    <div class="yag-item">
-      <strong>Bıttım Yağı</strong>
-      <p>Saç diplerini güçlendirir ve deri gözeneklerini açarak nefes aldırır.</p>
+    <div class="yag-kart">
+      <h4>Ardıç Katranı</h4>
+      <p>Egzama ve kaşıntı gibi cilt sorunlarında ferahlatıcıdır.</p>
     </div>
   </div>
 </section>
 
 <section id="iletisim">
   <h2>İletişim</h2>
-  <p>Sorularınız için bize ulaşın:</p><br>
+  <p>Sorularınız için:</p>
   <p><a href="mailto:meldenaturale@hotmail.com">meldenaturale@hotmail.com</a></p>
   <p>Telefon: +90 554 600 40 00</p>
 </section>
 
-<div id="sabunModal" class="modal">
+<div id="productModal" class="modal">
   <div class="modal-content">
     <span class="close-btn" onclick="closeModal()">&times;</span>
     <img id="modalImg" src="" alt="">
     <h3 id="modalTitle"></h3>
     <p id="modalDesc"></p>
-    <div id="modalPrice" class="fiyat" style="margin-top:1rem; font-size:1.3rem;"></div>
+    <div id="modalPrice" class="fiyat"></div>
   </div>
 </div>
 
@@ -146,8 +178,9 @@
 </footer>
 
 <script>
-// BALONCUKLAR (Dinamik ve Sallanan)
-const container = document.getElementById('bubble-container');
+// Baloncuklar - Dinamik & Sallanan Efekt
+const bubbleContainer = document.querySelector('.sabunlar');
+const bubbleCount = 20;
 const bubbles = [];
 
 class Bubble {
@@ -155,49 +188,50 @@ class Bubble {
     this.reset();
     this.element = document.createElement('div');
     this.element.classList.add('bubble');
-    container.appendChild(this.element);
+    bubbleContainer.appendChild(this.element);
   }
   reset() {
     this.size = Math.random() * 40 + 15;
-    this.x = Math.random() * window.innerWidth;
-    this.y = window.innerHeight + 50;
-    this.speed = Math.random() * 1 + 0.5;
-    this.velX = Math.random() * 2 - 1; // Yatay salınım
-    this.opacity = Math.random() * 0.5 + 0.2;
+    this.x = Math.random() * bubbleContainer.offsetWidth;
+    this.y = bubbleContainer.offsetHeight + 50;
+    this.speed = Math.random() * 0.8 + 0.3;
+    this.angle = Math.random() * Math.PI * 2; // Başlangıç açısı
   }
   update() {
     this.y -= this.speed;
-    this.x += Math.sin(this.y / 30) * 1.5; // Dinamik dalgalanma efekti
-    if (this.y < -50) this.reset();
+    this.angle += 0.02; 
+    let xOffset = Math.sin(this.angle) * 1.5; // Dinamik dalgalanma
+    
+    if(this.y + this.size < -50) this.reset();
+    
     this.element.style.width = this.size + 'px';
     this.element.style.height = this.size + 'px';
     this.element.style.top = this.y + 'px';
-    this.element.style.left = this.x + 'px';
-    this.element.style.opacity = this.opacity;
+    this.element.style.left = (this.x + xOffset) + 'px';
+    this.element.style.opacity = 0.6;
   }
 }
 
-for(let i=0; i<25; i++) bubbles.push(new Bubble());
-function animate() {
+for(let i=0; i<bubbleCount; i++) bubbles.push(new Bubble());
+function animateBubbles(){
   bubbles.forEach(b => b.update());
-  requestAnimationFrame(animate);
+  requestAnimationFrame(animateBubbles);
 }
-animate();
+animateBubbles();
 
-// MODAL KONTROL
-function openModal(title, desc, price, img) {
+// Modal Fonksiyonları
+const modal = document.getElementById('productModal');
+function showProduct(title, desc, price, img) {
   document.getElementById('modalTitle').innerText = title;
   document.getElementById('modalDesc').innerText = desc;
   document.getElementById('modalPrice').innerText = price;
   document.getElementById('modalImg').src = img;
-  document.getElementById('sabunModal').style.display = 'flex';
+  modal.style.display = 'flex';
 }
 function closeModal() {
-  document.getElementById('sabunModal').style.display = 'none';
+  modal.style.display = 'none';
 }
-window.onclick = function(event) {
-  if (event.target == document.getElementById('sabunModal')) closeModal();
-}
+window.onclick = function(e) { if(e.target == modal) closeModal(); }
 </script>
 
 </body>
