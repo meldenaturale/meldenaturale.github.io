@@ -20,29 +20,25 @@
   #hero {background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80'); min-height:600px; font-size:3rem; }
 
   /* SABUNLAR */
-  /* Arka plan daha doygun yapıldı */
-  .sabunlar {padding:4rem 2rem 2rem; max-width:1000px; margin:0 auto; position:relative; background:rgba(128, 222, 234, 0.7); overflow:hidden;}
-  /* Başlık ön plana alındı (z-index eklendi) */
+  .sabunlar {padding:4rem 2rem 2rem; max-width:1100px; margin:0 auto; position:relative; background:rgba(128, 222, 234, 0.7); overflow:hidden; border-radius: 20px; margin-top: 2rem;}
   .sabunlar h2 {text-align:center; color:#004d40; margin-bottom:2rem; font-size:2.5rem; font-weight:700; position:relative; z-index:2;}
   .sabun-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; position:relative; z-index:1;}
   
-  /* HOVER EFEKTİ */
   .sabun-kart {background:rgba(255,255,255,0.5); border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); overflow:hidden; transition:transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer; display:block; text-decoration:none; color:inherit;}
   .sabun-kart:hover {transform:translateY(-12px); box-shadow:0 12px 28px rgba(0,0,0,0.2);}
-  
   .sabun-kart img {width:100%; height:180px; object-fit:cover; border-bottom:3px solid #008080;}
-  .sabun-kart .icerik {padding:1rem 1rem 1rem;}
+  .sabun-kart .icerik {padding:1rem;}
   .sabun-kart .icerik h3 {color:#00796b; margin-bottom:0.5rem;}
-  .sabun-kart .icerik p {font-size:0.9rem; color:#555;}
   .sabun-kart .icerik .fiyat {margin-top:0.5rem; font-weight:700; color:#004d40;}
 
-  /* DOĞAL YAĞLAR BÖLÜMÜ */
-  .dogal-yaglar {padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; text-align: center;}
-  .dogal-yaglar h2 {color: #004d40; margin-bottom: 2rem; font-size: 2rem;}
-  .yag-liste {display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;}
-  .yag-kart {background: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); width: 220px;}
-  .yag-kart h4 {color: #008080; margin-bottom: 0.5rem;}
-  .yag-kart p {font-size: 0.85rem; color: #666;}
+  /* YAĞLAR BÖLÜMÜ */
+  .dogal-yaglar {padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; text-align: center;}
+  .dogal-yaglar h2 {color: #004d40; margin-bottom: 2rem; font-size: 2.5rem;}
+  .yag-liste {display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;}
+  .yag-kart {background: #fff; padding: 1.2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s;}
+  .yag-kart:hover {transform: scale(1.05); background: #f9ffff;}
+  .yag-kart h4 {color: #008080; margin-bottom: 0.5rem; font-size: 1rem;}
+  .yag-kart p {font-size: 0.8rem; color: #666; line-height: 1.3;}
 
   /* CAROUSEL */
   .carousel-container {margin:3rem auto; max-width:1000px; overflow:hidden; position:relative; border-radius:15px; background:white; padding:20px 0;}
@@ -62,31 +58,29 @@
   .close-btn {position:absolute; top:10px; right:15px; font-size:1.5rem; font-weight:bold; color:#555; cursor:pointer;}
   .modal-content img {width:100%; border-radius:8px; margin-bottom:1rem; height: 250px; object-fit: cover;}
   .modal-content h3 {margin-bottom:0.5rem; color:#00796b;}
-  .modal-content p {color:#555;}
   .modal-content .fiyat {font-weight:700; color:#004d40; margin-top:1rem; font-size: 1.2rem;}
 
-  /* İLETİŞİM & FOOTER */
-  section#iletisim {background:#004d40; color:white; padding:2rem 1rem; text-align:center;}
-  section#iletisim a {color:#80cbc4;}
-  footer {text-align:center; padding:1rem 0; color:#777; font-size:0.9rem; background:#e0f2f1; margin-top:4rem;}
+  /* İLETİŞİM (Mavi Arka Plan Yapıldı) */
+  section#iletisim {background:rgba(128, 222, 234, 0.7); color:#004d40; padding:4rem 1rem; text-align:center; font-weight: 600;}
+  section#iletisim h2 {margin-bottom: 1rem; color: #004d40;}
+  section#iletisim a {color:#00695c; text-decoration: underline;}
 
-  /* Responsive */
+  footer {text-align:center; padding:1rem 0; color:#777; font-size:0.9rem; background:#e0f2f1;}
+
   @media (max-width:600px) {
-    header h1 {font-size:1.2rem;}
-    nav a {font-size:0.9rem; margin-left:1rem;}
-    .sabun-kart img {height:150px;}
-    .slide {width:200px; height:140px;}
-    .modal-content {width:95%; padding:1.5rem;}
+    header h1 {font-size:1rem;}
+    nav a {font-size:0.8rem; margin-left:0.8rem;}
   }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Melde Naturale, Doğal Sabunları</h1>
+  <h1>Melde Naturale</h1>
   <nav>
     <a href="#hero">Anasayfa</a>
     <a href="#sabunlar">Sabunlar</a>
+    <a href="#yaglar">Yağlar</a>
     <a href="#iletisim">İletişim</a>
   </nav>
 </header>
@@ -95,7 +89,7 @@
   Doğanın Saflığını Hissedin
 </section>
 
-<div class="carousel-container" aria-label="Sabun Galerisi">
+<div class="carousel-container">
   <div class="carousel-track">
     <div class="slide"><img src="https://picsum.photos/250/150?random=1" alt=""></div>
     <div class="slide"><img src="https://picsum.photos/250/150?random=2" alt=""></div>
@@ -113,96 +107,82 @@
 <section id="sabunlar" class="sabunlar">
   <h2>Sabun Türleri</h2>
   <div class="sabun-grid">
-    <div class="sabun-kart" onclick="showProduct('Zeytinyağlı Sabun', 'Soğuk sıkım zeytinyağı ile hazırlanan bu sabun, cildinizi kurutmadan temizler ve E vitamini desteği sağlar.', '120₺', 'https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=600&q=80')">
-      <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=600&q=80" alt="Zeytinyağlı Sabun">
-      <div class="icerik">
-        <h3>Zeytinyağlı Sabun</h3>
-        <p>Saf zeytinyağı ve şifalı yağlarla üretilir.</p>
-        <div class="fiyat">120₺</div>
-      </div>
+    <div class="sabun-kart" onclick="showProduct('Zeytinyağlı Sabun', 'E vitamini deposu saf zeytinyağı.', '120₺', 'https://images.unsplash.com/photo-1542831371-d531d36971e6?w=600')">
+      <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?w=600" alt="">
+      <div class="icerik"><h3>Zeytinyağlı Sabun</h3><div class="fiyat">120₺</div></div>
     </div>
-    <div class="sabun-kart" onclick="showProduct('Lavanta Sabunu', 'Taze lavanta çiçeklerinden elde edilen yağlarla, banyonuzda spa etkisi yaratır ve cildinizi yatıştırır.', '90₺', 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&w=600&q=80')">
-      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&w=600&q=80" alt="Lavanta Sabunu">
-      <div class="icerik">
-        <h3>Lavanta Sabunu</h3>
-        <p>Cildi yatıştırır ve hoş bir koku bırakır.</p>
-        <div class="fiyat">90₺</div>
-      </div>
+    <div class="sabun-kart" onclick="showProduct('Lavanta Sabunu', 'Rahatlatıcı gerçek lavanta yağı.', '90₺', 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600')">
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600" alt="">
+      <div class="icerik"><h3>Lavanta Sabunu</h3><div class="fiyat">90₺</div></div>
     </div>
-    <div class="sabun-kart" onclick="showProduct('Ballı Sabun', 'Doğal bal ve arı sütü özleri içeren formülü, kuru ciltler için mükemmel bir nemlendiricidir.', '110₺', 'https://images.unsplash.com/photo-1510626176961-4bfb5e71d8a7?auto=format&w=600&q=80')">
-      <img src="https://images.unsplash.com/photo-1510626176961-4bfb5e71d8a7?auto=format&w=600&q=80" alt="Ballı Sabun">
-      <div class="icerik">
-        <h3>Ballı Sabun</h3>
-        <p>Cildi besler ve canlandırır.</p>
-        <div class="fiyat">110₺</div>
-      </div>
+    <div class="sabun-kart" onclick="showProduct('Ballı Sabun', 'Cildi besleyen doğal bal özü.', '110₺', 'https://images.unsplash.com/photo-1510626176961-4bfb5e71d8a7?w=600')">
+      <img src="https://images.unsplash.com/photo-1510626176961-4bfb5e71d8a7?w=600" alt="">
+      <div class="icerik"><h3>Ballı Sabun</h3><div class="fiyat">110₺</div></div>
     </div>
-    <div class="sabun-kart" onclick="showProduct('Bıttım Sabunu', 'Siirt yöresine has bıttım yağı ile üretilmiştir. Saç dökülmesine ve kepeğe karşı etkilidir.', '130₺', 'https://images.unsplash.com/photo-1600857062241-98e5dbae7212?auto=format&w=600&q=80')">
-        <img src="https://images.unsplash.com/photo-1600857062241-98e5dbae7212?auto=format&w=600&q=80" alt="Bıttım Sabunu">
-        <div class="icerik">
-          <h3>Bıttım Sabunu</h3>
-          <p>Saç ve cilt sağlığı için geleneksel çözüm.</p>
-          <div class="fiyat">130₺</div>
-        </div>
-      </div>
-    <div class="sabun-kart" onclick="showProduct('Keçi Sütü Sabunu', 'Anne sütüne en yakın süt olan keçi sütü ile cildinizi şımartın. Hassas ciltler için idealdir.', '100₺', 'https://images.unsplash.com/photo-1570194178391-a1793674f19d?auto=format&w=600&q=80')">
-        <img src="https://images.unsplash.com/photo-1570194178391-a1793674f19d?auto=format&w=600&q=80" alt="Keçi Sütü Sabunu">
-        <div class="icerik">
-          <h3>Keçi Sütü Sabunu</h3>
-          <p>Hassas ciltler için yumuşak dokunuş.</p>
-          <div class="fiyat">100₺</div>
-        </div>
-      </div>
-    <div class="sabun-kart" onclick="showProduct('Kükürtlü Sabun', 'Akne ve yağlı cilt problemlerine karşı doğal bir savaşçıdır. Cildi derinlemesine arındırır.', '85₺', 'https://images.unsplash.com/photo-1607006483592-b20d7141be27?auto=format&w=600&q=80')">
-        <img src="https://images.unsplash.com/photo-1607006483592-b20d7141be27?auto=format&w=600&q=80" alt="Kükürtlü Sabun">
-        <div class="icerik">
-          <h3>Kükürtlü Sabun</h3>
-          <p>Yağlı ciltler ve akne karşıtı.</p>
-          <div class="fiyat">85₺</div>
-        </div>
-      </div>
-    <div class="sabun-kart" onclick="showProduct('Defne Sabunu', 'Antakya\'nın meşhur defne yağı ile üretilmiştir. Vücudu rahatlatır, gözenekleri açar.', '115₺', 'https://images.unsplash.com/photo-1584305574647-0cc951b21b33?auto=format&w=600&q=80')">
-        <img src="https://images.unsplash.com/photo-1584305574647-0cc951b21b33?auto=format&w=600&q=80" alt="Defne Sabunu">
-        <div class="icerik">
-          <h3>Defne Sabunu</h3>
-          <p>Geleneksel Antakya defne mucizesi.</p>
-          <div class="fiyat">115₺</div>
-        </div>
-      </div>
-    <div class="sabun-kart" onclick="showProduct('Gül Sabunu', 'Gerçek gül yaprakları ve yağı ile cildinize romantik bir bakım sunar. Hoş kokuludur.', '95₺', 'https://images.unsplash.com/photo-1590667508255-80745885501c?auto=format&w=600&q=80')">
-        <img src="https://images.unsplash.com/photo-1590667508255-80745885501c?auto=format&w=600&q=80" alt="Gül Sabunu">
-        <div class="icerik">
-          <h3>Gül Sabunu</h3>
-          <p>Zarif koku ve nazik temizlik.</p>
-          <div class="fiyat">95₺</div>
-        </div>
-      </div>
+    <div class="sabun-kart" onclick="showProduct('Bıttım Sabunu', 'Saç dökülmesine karşı Siirt mucizesi.', '130₺', 'https://images.unsplash.com/photo-1600857062241-98e5dbae7212?w=600')">
+      <img src="https://images.unsplash.com/photo-1600857062241-98e5dbae7212?w=600" alt="">
+      <div class="icerik"><h3>Bıttım Sabunu</h3><div class="fiyat">130₺</div></div>
+    </div>
+    <div class="sabun-kart" onclick="showProduct('Keçi Sütü Sabunu', 'Hassas ciltler için doğal protein.', '100₺', 'https://images.unsplash.com/photo-1570194178391-a1793674f19d?w=600')">
+      <img src="https://images.unsplash.com/photo-1570194178391-a1793674f19d?w=600" alt="">
+      <div class="icerik"><h3>Keçi Sütü Sabunu</h3><div class="fiyat">100₺</div></div>
+    </div>
+    <div class="sabun-kart" onclick="showProduct('Kükürtlü Sabun', 'Yağ dengeleyici ve akne karşıtı.', '85₺', 'https://images.unsplash.com/photo-1607006483592-b20d7141be27?w=600')">
+      <img src="https://images.unsplash.com/photo-1607006483592-b20d7141be27?w=600" alt="">
+      <div class="icerik"><h3>Kükürtlü Sabun</h3><div class="fiyat">85₺</div></div>
+    </div>
+    <div class="sabun-kart" onclick="showProduct('Defne Sabunu', 'Antakya usulü geleneksel temizlik.', '115₺', 'https://images.unsplash.com/photo-1584305574647-0cc951b21b33?w=600')">
+      <img src="https://images.unsplash.com/photo-1584305574647-0cc951b21b33?w=600" alt="">
+      <div class="icerik"><h3>Defne Sabunu</h3><div class="fiyat">115₺</div></div>
+    </div>
+    <div class="sabun-kart" onclick="showProduct('Gül Sabunu', 'Isparta gülleri ile taze bir cilt.', '95₺', 'https://images.unsplash.com/photo-1590667508255-80745885501c?w=600')">
+      <img src="https://images.unsplash.com/photo-1590667508255-80745885501c?w=600" alt="">
+      <div class="icerik"><h3>Gül Sabunu</h3><div class="fiyat">95₺</div></div>
+    </div>
   </div>
 </section>
 
-<section class="dogal-yaglar">
-  <h2>Kullandığımız Doğal Yağlar</h2>
+<section id="yaglar" class="dogal-yaglar">
+  <h2>Kullandığımız 30 Şifalı Yağ</h2>
   <div class="yag-liste">
-    <div class="yag-kart">
-      <h4>Kantaron Yağı</h4>
-      <p>Hücre yenilenmesine yardımcı olur, cilt lekelerini hafifletir.</p>
-    </div>
-    <div class="yag-kart">
-      <h4>Hindistan Cevizi</h4>
-      <p>Cilde derinlemesine nem sağlar ve doğal parlaklık verir.</p>
-    </div>
-    <div class="yag-kart">
-      <h4>Ardıç Katranı</h4>
-      <p>Egzama ve kaşıntı gibi cilt sorunlarında ferahlatıcıdır.</p>
-    </div>
+    <div class="yag-kart"><h4>Kantaron Yağı</h4><p>Hücre yenileyici ve yara iyileştirici.</p></div>
+    <div class="yag-kart"><h4>Ardıç Katranı</h4><p>Egzama ve kaşıntı karşıtı.</p></div>
+    <div class="yag-kart"><h4>Hindistan Cevizi</h4><p>Derin nemlendirme sağlar.</p></div>
+    <div class="yag-kart"><h4>Tatlı Badem Yağı</h4><p>Cilt elastikiyetini artırır.</p></div>
+    <div class="yag-kart"><h4>Çörek Otu Yağı</h4><p>Antibakteriyel koruma sunar.</p></div>
+    <div class="yag-kart"><h4>Lavanta Yağı</h4><p>Sakinleştirici ve ferahlatıcı.</p></div>
+    <div class="yag-kart"><h4>Biberiye Yağı</h4><p>Kan dolaşımını hızlandırır.</p></div>
+    <div class="yag-kart"><h4>Çay Ağacı Yağı</h4><p>Akne ve leke karşıtıdır.</p></div>
+    <div class="yag-kart"><h4>Susam Yağı</h4><p>Güneşin zararlı ışınlarından korur.</p></div>
+    <div class="yag-kart"><h4>Kayısı Çekirdeği</h4><p>A vitamini ile cildi canlandırır.</p></div>
+    <div class="yag-kart"><h4>Jojoba Yağı</h4><p>Cildin yağ dengesini sağlar.</p></div>
+    <div class="yag-kart"><h4>Avokado Yağı</h4><p>Kuru ciltleri onarır.</p></div>
+    <div class="yag-kart"><h4>Hint Yağı</h4><p>Kirpik ve kaş diplerini besler.</p></div>
+    <div class="yag-kart"><h4>Üzüm Çekirdeği</h4><p>Antioksidan kaynağıdır.</p></div>
+    <div class="yag-kart"><h4>Nar Çekirdeği</h4><p>Yaşlanma karşıtı etki gösterir.</p></div>
+    <div class="yag-kart"><h4>Kabak Çekirdeği</h4><p>Çinko ile cildi onarır.</p></div>
+    <div class="yag-kart"><h4>Sarımsak Yağı</h4><p>Saç köklerini güçlendirir.</p></div>
+    <div class="yag-kart"><h4>Nane Yağı</h4><p>Ferahlık ve serinlik verir.</p></div>
+    <div class="yag-kart"><h4>Limon Yağı</h4><p>Cildi arındırır ve parlatır.</p></div>
+    <div class="yag-kart"><h4>Portakal Yağı</h4><p>C vitamini desteği sağlar.</p></div>
+    <div class="yag-kart"><h4>Papatya Yağı</h4><p>Hassas ciltleri yatıştırır.</p></div>
+    <div class="yag-kart"><h4>Okaliptüs Yağı</h4><p>Nefes açıcı ve arındırıcı.</p></div>
+    <div class="yag-kart"><h4>Keten Tohumu</h4><p>Omega-3 ile besler.</p></div>
+    <div class="yag-kart"><h4>Fındık Yağı</h4><p>Sıkılaştırıcı etki sağlar.</p></div>
+    <div class="yag-kart"><h4>Ceviz Yağı</h4><p>Yıpranmış ciltleri yeniler.</p></div>
+    <div class="yag-kart"><h4>Gül Yağı</h4><p>Tonik etkisi yaratır.</p></div>
+    <div class="yag-kart"><h4>Isırgan Tohumu</h4><p>Kepek oluşumunu engeller.</p></div>
+    <div class="yag-kart"><h4>Defne Yağı</h4><p>Gözenekleri temizler.</p></div>
+    <div class="yag-kart"><h4>Soya Yağı</h4><p>B5 vitamini ile yumuşatır.</p></div>
+    <div class="yag-kart"><h4>Shea Yağı</h4><p>Yoğun kış bakımı sağlar.</p></div>
   </div>
 </section>
 
 <section id="iletisim">
-  <h2>İletişim</h2>
-  <p>Sorularınız için:</p>
+  <h2>Bizimle İletişime Geçin</h2>
+  <p>Her türlü sorunuz için buradayız:</p><br>
   <p><a href="mailto:meldenaturale@hotmail.com">meldenaturale@hotmail.com</a></p>
-  <p>Telefon: +90 554 600 40 00</p>
+  <p>WhatsApp & Telefon: +90 554 600 40 00</p>
 </section>
 
 <div id="productModal" class="modal">
@@ -220,9 +200,7 @@
 </footer>
 
 <script>
-// Baloncuklar - Dinamik & Sallanan Efekt
 const bubbleContainer = document.querySelector('.sabunlar');
-const bubbleCount = 20;
 const bubbles = [];
 
 class Bubble {
@@ -237,15 +215,13 @@ class Bubble {
     this.x = Math.random() * bubbleContainer.offsetWidth;
     this.y = bubbleContainer.offsetHeight + 50;
     this.speed = Math.random() * 0.8 + 0.3;
-    this.angle = Math.random() * Math.PI * 2; // Başlangıç açısı
+    this.angle = Math.random() * Math.PI * 2;
   }
   update() {
     this.y -= this.speed;
     this.angle += 0.02; 
-    let xOffset = Math.sin(this.angle) * 1.5; // Dinamik dalgalanma
-    
+    let xOffset = Math.sin(this.angle) * 1.5;
     if(this.y + this.size < -50) this.reset();
-    
     this.element.style.width = this.size + 'px';
     this.element.style.height = this.size + 'px';
     this.element.style.top = this.y + 'px';
@@ -254,26 +230,22 @@ class Bubble {
   }
 }
 
-for(let i=0; i<bubbleCount; i++) bubbles.push(new Bubble());
+for(let i=0; i<20; i++) bubbles.push(new Bubble());
 function animateBubbles(){
   bubbles.forEach(b => b.update());
   requestAnimationFrame(animateBubbles);
 }
 animateBubbles();
 
-// Modal Fonksiyonları
-const modal = document.getElementById('productModal');
 function showProduct(title, desc, price, img) {
   document.getElementById('modalTitle').innerText = title;
   document.getElementById('modalDesc').innerText = desc;
   document.getElementById('modalPrice').innerText = price;
   document.getElementById('modalImg').src = img;
-  modal.style.display = 'flex';
+  document.getElementById('productModal').style.display = 'flex';
 }
-function closeModal() {
-  modal.style.display = 'none';
-}
-window.onclick = function(e) { if(e.target == modal) closeModal(); }
+function closeModal() { document.getElementById('productModal').style.display = 'none'; }
+window.onclick = function(e) { if(e.target == document.getElementById('productModal')) closeModal(); }
 </script>
 
 </body>
