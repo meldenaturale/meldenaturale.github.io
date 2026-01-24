@@ -8,7 +8,7 @@
   * { box-sizing: border-box; margin:0; padding:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth;}
   body { background: #f0f8ff; color:#333; line-height:1.6; overflow-x:hidden;}
   
-  /* TÜM YEŞİLLER SİYAHA ÇEVRİLDİ */
+  /* SADECE YEŞİLLER SİYAHA ÇEVRİLDİ - MAVİLER KORUNDU */
   a { color:#000; text-decoration:none;}
 
   /* HEADER */
@@ -30,20 +30,20 @@
   .carousel-track {
     display:flex; 
     width:calc(250px * 7); 
-    animation: scrollAlternate 15s ease-in-out infinite alternate; /* Sona varınca geri döner */
+    animation: scrollAlternate 15s ease-in-out infinite alternate;
   }
   .slide {width:250px; height:150px; display:flex; align-items:center; justify-content:center; padding:10px;}
   .slide img {width:100%; border-radius:10px; height: 100%; object-fit: cover;}
   
   @keyframes scrollAlternate {
     0% { transform: translateX(0);} 
-    100% { transform: translateX(calc(-250px * 3)); } /* 7 resim için ideal kayma */
+    100% { transform: translateX(calc(-250px * 3)); }
   }
   .carousel-container:hover .carousel-track {animation-play-state: paused;}
 
   /* SABUNLAR & YAĞLAR TASARIMI */
   .section-container {padding:4rem 2rem; max-width:1100px; margin:2rem auto; position:relative; overflow:hidden; border-radius: 20px;}
-  .bg-mavi {background:rgba(0, 0, 0, 0.05);} /* Yeşilden gri/siyah tona çekildi */
+  .bg-mavi {background:rgba(128, 222, 234, 0.7);} /* MAVİ ARKA PLAN KORUNDU */
   
   h2 {text-align:center; color:#000; margin-bottom:2rem; font-size:2.5rem; position:relative; z-index:2;}
   .grid-layout {display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; position:relative; z-index:1;}
@@ -56,7 +56,7 @@
   .kart .fiyat {font-weight:700; color:#000;}
 
   /* BALONCUKLAR */
-  .bubble {position:absolute; border-radius:50%; pointer-events:none; z-index:0; background: rgba(0,0,0,0.1);}
+  .bubble {position:absolute; border-radius:50%; pointer-events:none; z-index:0; background: rgba(255,255,255,0.8);}
 
   /* MODAL */
   .modal {display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.8); align-items:center; justify-content:center;}
@@ -69,9 +69,9 @@
   .modal-content .fiyat {font-weight:700; color:#000; margin-top:1.5rem; font-size: 1.4rem; border-top: 1px solid #eee; padding-top: 1rem;}
 
   /* İLETİŞİM */
-  section#iletisim {background:rgba(0, 0, 0, 0.05); color:#000; padding:4rem 1rem; text-align:center; font-weight: 600;}
+  section#iletisim {background:rgba(128, 222, 234, 0.7); color:#000; padding:4rem 1rem; text-align:center; font-weight: 600;}
   section#iletisim a {color:#000; text-decoration: underline;}
-  footer {text-align:center; padding:1.5rem; background:#eee; color:#777;}
+  footer {text-align:center; padding:1.5rem; background:#e0f2f1; color:#777;}
 
   @media (max-width:600px) { header h1 {font-size:1.1rem;} nav a {font-size:0.8rem; margin-left:0.7rem;} }
 </style>
@@ -79,7 +79,7 @@
 <body>
 
 <header>
-  <h1>Melde Naturale-5</h1>
+  <h1>Melde Naturale-6</h1>
   <nav>
     <a href="#hero">Anasayfa</a>
     <a href="#sabunlar">Sabunlar</a>
@@ -105,36 +105,36 @@
 <section id="sabunlar" class="section-container bg-mavi">
   <h2>Sabun Türlerimiz</h2>
   <div class="grid-layout">
-    <div class="kart" onclick="openModal('Zeytinyağlı Sabun', 'Ege’nin asırlık zeytin ağaçlarından elde edilen soğuk sıkım sızma zeytinyağı ile üretilen bu sabun, cildin en doğal dostudur. İçeriğindeki yüksek E vitamini sayesinde cildi derinlemesine nemlendirir, elastikiyetini artırır ve yaşlanma belirtilerine karşı koruma sağlar.', '120₺', 'SABUN_RESIM_1')">
-      <img src="SABUN_RESIM_1" alt="Zeytinyağlı Sabun">
+    <div class="kart" onclick="openModal('Zeytinyağlı Sabun', 'Ege’nin asırlık zeytin ağaçlarından elde edilen soğuk sıkım sızma zeytinyağı ile üretilen bu sabun, cildin en doğal dostudur...', '120₺', 'buraya')">
+      <img src="buraya" alt="Zeytinyağlı Sabun">
       <div class="icerik"><h3>Zeytinyağlı Sabun</h3><div class="fiyat">120₺</div></div>
     </div>
-    <div class="kart" onclick="openModal('Lavanta Sabunu', 'Gerçek lavanta yağı ve kurutulmuş lavanta çiçekleri ile harmanlanan bu özel sabun, hem ruhunuza hem cildinize terapi sunar. Antiseptik özelliği sayesinde sivilce ve akne oluşumunu engellemeye yardımcı olurken, lavantanın eşsiz kokusu stresinizi azaltır.', '90₺', 'SABUN_RESIM_2')">
-      <img src="SABUN_RESIM_2" alt="Lavanta Sabunu">
+    <div class="kart" onclick="openModal('Lavanta Sabunu', 'Gerçek lavanta yağı ve kurutulmuş lavanta çiçekleri...', '90₺', 'buraya')">
+      <img src="buraya" alt="Lavanta Sabunu">
       <div class="icerik"><h3>Lavanta Sabunu</h3><div class="fiyat">90₺</div></div>
     </div>
-    <div class="kart" onclick="openModal('Ballı Sabun', 'Doğal süzme bal ve arı sütü özleriyle zenginleştirilmiş bu sabun, kuru ve mat ciltler için bir hayat iksiridir. Balın doğal hümektan özelliği nemi hapseder, cildin gün boyu yumuşak kalmasını sağlar.', '110₺', 'SABUN_RESIM_3')">
-      <img src="SABUN_RESIM_3" alt="Ballı Sabun">
+    <div class="kart" onclick="openModal('Ballı Sabun', 'Doğal süzme bal ve arı sütü özleriyle...', '110₺', 'buraya')">
+      <img src="buraya" alt="Ballı Sabun">
       <div class="icerik"><h3>Ballı Sabun</h3><div class="fiyat">110₺</div></div>
     </div>
-    <div class="kart" onclick="openModal('Bıttım Sabunu', 'özellikle saç dökülmesi, kepek ve deri kaşıntıları için yüzyıllardır kullanılmaktadır. Saç diplerini besleyerek yeni saç oluşumunu destekler ve ince telli saçlara hacim kazandırır.', '130₺', 'SABUN_RESIM_4')">
-      <img src="SABUN_RESIM_4" alt="Bıttım Sabunu">
+    <div class="kart" onclick="openModal('Bıttım Sabunu', 'özellikle saç dökülmesi, kepek ve deri kaşıntıları için...', '130₺', 'buraya')">
+      <img src="buraya" alt="Bıttım Sabunu">
       <div class="icerik"><h3>Bıttım Sabunu</h3><div class="fiyat">130₺</div></div>
     </div>
-    <div class="kart" onclick="openModal('Keçi Sütü Sabunu', 'Anne sütüne en yakın değerlere sahip keçi sütü ile hazırlanan bu sabun, doğal bir peeling etkisi yaratan laktik asitler içerir. Ciltteki ölü hücreleri nazikçe temizler.', '100₺', 'SABUN_RESIM_5')">
-      <img src="SABUN_RESIM_5" alt="Keçi Sütü Sabunu">
+    <div class="kart" onclick="openModal('Keçi Sütü Sabunu', 'Anne sütüne en yakın değerlere sahip...', '100₺', 'buraya')">
+      <img src="buraya" alt="Keçi Sütü Sabunu">
       <div class="icerik"><h3>Keçi Sütü Sabunu</h3><div class="fiyat">100₺</div></div>
     </div>
-    <div class="kart" onclick="openModal('Kükürtlü Sabun', 'Özellikle yağlı ve akneye meyilli ciltler için dermatolojik bir çözüm sunar. Kükürtün kurutucu ve arındırıcı etkisi fazla sebum üretimini dengeler.', '85₺', 'SABUN_RESIM_6')">
-      <img src="SABUN_RESIM_6" alt="Kükürtlü Sabun">
+    <div class="kart" onclick="openModal('Kükürtlü Sabun', 'Özellikle yağlı ve akneye meyilli ciltler için...', '85₺', 'buraya')">
+      <img src="buraya" alt="Kükürtlü Sabun">
       <div class="icerik"><h3>Kükürtlü Sabun</h3><div class="fiyat">85₺</div></div>
     </div>
-    <div class="kart" onclick="openModal('Defne Sabunu', 'Antakya’nın meşhur saf defne yağı ve zeytinyağı karışımıyla elde edilir. Keskin ve ferah kokusuyla bilinen defne yağı, ciltteki mantar ve egzama gibi sorunlara yardımcıdır.', '115₺', 'SABUN_RESIM_7')">
-      <img src="SABUN_RESIM_7" alt="Defne Sabunu">
+    <div class="kart" onclick="openModal('Defne Sabunu', 'Antakya’nın meşhur saf defne yağı...', '115₺', 'buraya')">
+      <img src="buraya" alt="Defne Sabunu">
       <div class="icerik"><h3>Defne Sabunu</h3><div class="fiyat">115₺</div></div>
     </div>
-    <div class="kart" onclick="openModal('Gül Sabunu', 'Isparta’nın en özel güllerinden elde edilen gül yağı ve distile gül suyu içeren bu sabun, cildin doğal pH dengesini korur. Yaşlanma karşıtı etkisiyle cildi sıkılaştırır.', '95₺', 'SABUN_RESIM_8')">
-      <img src="SABUN_RESIM_8" alt="Gül Sabunu">
+    <div class="kart" onclick="openModal('Gül Sabunu', 'Isparta’nın en özel güllerinden...', '95₺', 'buraya')">
+      <img src="buraya" alt="Gül Sabunu">
       <div class="icerik"><h3>Gül Sabunu</h3><div class="fiyat">95₺</div></div>
     </div>
   </div>
@@ -143,124 +143,124 @@
 <section id="yaglar" class="section-container">
   <h2>Kullandığımız 30 Şifalı Yağ</h2>
   <div class="grid-layout">
-    <div class="kart" onclick="openModal('Kantaron Yağı', 'Kantaron çiçeklerinin zeytinyağında bekletilmesiyle elde edilen bu yağ, tam bir hücre yenileyicidir. Güneş yanıklarından mutfak kazalarına kadar her türlü yara ve izde etkilidir. Ciltteki lekelerin görünümünü azaltır ve iltihaplanmayı önler.', '', 'YAG_RESIM_1')">
-      <img src="YAG_RESIM_1" alt="Kantaron Yağı">
+    <div class="kart" onclick="openModal('Kantaron Yağı', 'Kantaron çiçeklerinin zeytinyağında bekletilmesiyle elde edilen bu yağ...', '', 'buraya')">
+      <img src="buraya" alt="Kantaron Yağı">
       <div class="icerik"><h4>Kantaron Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Ardıç Katranı', 'Ardıç ağacının odunlarından damıtılan bu yağ, yüzyıllardır cilt hastalıklarında başroldedir. Egzama, sedef ve şiddetli kaşıntı gibi problemlerde cildi sakinleştirir, mikroplardan arındırır.', '', 'YAG_RESIM_2')">
-      <img src="YAG_RESIM_2" alt="Ardıç Katranı">
+    <div class="kart" onclick="openModal('Ardıç Katranı', 'Ardıç ağacının odunlarından damıtılan bu yağ...', '', 'buraya')">
+      <img src="buraya" alt="Ardıç Katranı">
       <div class="icerik"><h4>Ardıç Katranı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Hindistan Cevizi Yağı', 'Soğuk sıkım Hindistan cevizi yağı, cilde muazzam bir yumuşaklık verir. İçeriğindeki laurik asit sayesinde cildi bakterilere karşı korur. Makyaj temizlemeden saç bakımına kadar çok amaçlıdır.', '', 'YAG_RESIM_3')">
-      <img src="YAG_RESIM_3" alt="Hindistan Cevizi Yağı">
+    <div class="kart" onclick="openModal('Hindistan Cevizi Yağı', 'Soğuk sıkım Hindistan cevizi yağı...', '', 'buraya')">
+      <img src="buraya" alt="Hindistan Cevizi Yağı">
       <div class="icerik"><h4>Hindistan Cevizi</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Tatlı Badem Yağı', 'Protein, mineral ve vitaminler açısından zengindir. Cilt elastikiyetini artırarak çatlak oluşumunu önlemeye yardımcı olur. Göz altı morluklarının hafifletilmesinde etkilidir.', '', 'YAG_RESIM_4')">
-      <img src="YAG_RESIM_4" alt="Tatlı Badem Yağı">
+    <div class="kart" onclick="openModal('Tatlı Badem Yağı', 'Protein, mineral ve vitaminler...', '', 'buraya')">
+      <img src="buraya" alt="Tatlı Badem Yağı">
       <div class="icerik"><h4>Tatlı Badem</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Çörek Otu Yağı', 'Güçlü antioksidanlar içerir. Ciltteki alerjik reaksiyonları azaltır, sivilceleri kurutur ve cildin bağışıklığını artırarak dış etkenlere karşı koruma kalkanı oluşturur.', '', 'YAG_RESIM_5')">
-      <img src="YAG_RESIM_5" alt="Çörek Otu Yağı">
+    <div class="kart" onclick="openModal('Çörek Otu Yağı', 'Güçlü antioksidanlar içerir...', '', 'buraya')">
+      <img src="buraya" alt="Çörek Otu Yağı">
       <div class="icerik"><h4>Çörek Otu</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Lavanta Yağı', 'Cildi yatıştırır, kızarıklıkları giderir ve hücresel bazda yenilenme sağlar. Lavantanın sakinleştirici aroması stres kaynaklı cilt döküntülerinin önüne geçer.', '', 'YAG_RESIM_6')">
-      <img src="YAG_RESIM_6" alt="Lavanta Yağı">
+    <div class="kart" onclick="openModal('Lavanta Yağı', 'Cildi yatıştırır, kızarıklıkları giderir...', '', 'buraya')">
+      <img src="buraya" alt="Lavanta Yağı">
       <div class="icerik"><h4>Lavanta Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Biberiye Yağı', 'Kan dolaşımını hızlandırıcı etkisiyle saç dökülmesine karşı etkilidir. Vücutta kullanıldığında selülit görünümünün azalmasına ve cildin sıkılaşmasına yardımcı olur.', '', 'YAG_RESIM_7')">
-      <img src="YAG_RESIM_7" alt="Biberiye Yağı">
+    <div class="kart" onclick="openModal('Biberiye Yağı', 'Kan dolaşımını hızlandırıcı etkisiyle...', '', 'buraya')">
+      <img src="buraya" alt="Biberiye Yağı">
       <div class="icerik"><h4>Biberiye Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Çay Ağacı Yağı', 'Doğanın en güçlü antiseptiğidir. Doğrudan sivilce üzerine uygulandığında iltihabı söndürür. Ayak mantarı gibi enfeksiyonlarda temizleyici rol oynar.', '', 'YAG_RESIM_8')">
-      <img src="YAG_RESIM_8" alt="Çay Ağacı Yağı">
+    <div class="kart" onclick="openModal('Çay Ağacı Yağı', 'Doğanın en güçlü antiseptiğidir...', '', 'buraya')">
+      <img src="buraya" alt="Çay Ağacı Yağı">
       <div class="icerik"><h4>Çay Ağacı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Susam Yağı', 'Doğal bir güneş koruma faktörüne (SPF) sahiptir. Çinko bakımından zengindir, cilt dokusunu yeniler. Kuru ciltleri derinlemesine besler.', '', 'YAG_RESIM_9')">
-      <img src="YAG_RESIM_9" alt="Susam Yağı">
+    <div class="kart" onclick="openModal('Susam Yağı', 'Doğal bir güneş koruma faktörüne sahiptir...', '', 'buraya')">
+      <img src="buraya" alt="Susam Yağı">
       <div class="icerik"><h4>Susam Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Kayısı Çekirdeği', 'Yoğun A ve E vitamini içerir. Cilt tarafından çok hızlı emilir. Kırışıklıkları doldurmaya ve cilde sağlıklı bir ışıltı kazandırmaya yardımcı olur.', '', 'YAG_RESIM_10')">
-      <img src="YAG_RESIM_10" alt="Kayısı Çekirdeği">
+    <div class="kart" onclick="openModal('Kayısı Çekirdeği', 'Yoğun A ve E vitamini içerir...', '', 'buraya')">
+      <img src="buraya" alt="Kayısı Çekirdeği">
       <div class="icerik"><h4>Kayısı Çekirdeği</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Jojoba Yağı', 'İnsan cildinin ürettiği doğal yağa en yakın yağdır. Gözenekleri tıkamaz, aksine temizler ve cildin yağ üretimini akıllıca dengeler.', '', 'YAG_RESIM_11')">
-      <img src="YAG_RESIM_11" alt="Jojoba Yağı">
+    <div class="kart" onclick="openModal('Jojoba Yağı', 'İnsan cildinin ürettiği doğal yağa en yakındır...', '', 'buraya')">
+      <img src="buraya" alt="Jojoba Yağı">
       <div class="icerik"><h4>Jojoba Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Avokado Yağı', 'Kuru ve olgun ciltler için idealdir. Kolajen üretimini destekleyerek cildin daha dolgun ve genç görünmesini sağlar. Yoğun besleyicidir.', '', 'YAG_RESIM_12')">
-      <img src="YAG_RESIM_12" alt="Avokado Yağı">
+    <div class="kart" onclick="openModal('Avokado Yağı', 'Kuru ve olgun ciltler için idealdir...', '', 'buraya')">
+      <img src="buraya" alt="Avokado Yağı">
       <div class="icerik"><h4>Avokado Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Hint Yağı', 'Saç, kaş ve kirpik gürleştirmede dünya çapında bir üne sahiptir. Ciltteki koyu lekelerin rengini açmada düzenli kullanımda başarılıdır.', '', 'YAG_RESIM_13')">
-      <img src="YAG_RESIM_13" alt="Hint Yağı">
+    <div class="kart" onclick="openModal('Hint Yağı', 'Saç, kaş ve kirpik gürleştirmede...', '', 'buraya')">
+      <img src="buraya" alt="Hint Yağı">
       <div class="icerik"><h4>Hint Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Üzüm Çekirdeği', 'Cildi serbest radikallere ve hava kirliliğine karşı korur. Damar büzücü özelliği ile varis ve göz altı torbaları için destekleyicidir.', '', 'YAG_RESIM_14')">
-      <img src="YAG_RESIM_14" alt="Üzüm Çekirdeği">
+    <div class="kart" onclick="openModal('Üzüm Çekirdeği', 'Cildi serbest radikallere karşı korur...', '', 'buraya')">
+      <img src="buraya" alt="Üzüm Çekirdeği">
       <div class="icerik"><h4>Üzüm Çekirdeği</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Nar Çekirdeği', 'Cildin elastikiyetini inanılmaz derecede artırır. Güneşin zararlarını onarır ve cildi sıkılaştırarak lifting etkisi yaratır.', '', 'YAG_RESIM_15')">
-      <img src="YAG_RESIM_15" alt="Nar Çekirdeği">
+    <div class="kart" onclick="openModal('Nar Çekirdeği', 'Cildin elastikiyetini inanılmaz derecede artırır...', '', 'buraya')">
+      <img src="buraya" alt="Nar Çekirdeği">
       <div class="icerik"><h4>Nar Çekirdeği</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Kabak Çekirdeği', 'Çinko ve Omega asitleri ile doludur. Cildin yenilenme hızını artırır. Saç dökülmesiyle savaşan DHT hormonunu baskılar.', '', 'YAG_RESIM_16')">
-      <img src="YAG_RESIM_16" alt="Kabak Çekirdeği">
+    <div class="kart" onclick="openModal('Kabak Çekirdeği', 'Çinko ve Omega asitleri ile doludur...', '', 'buraya')">
+      <img src="buraya" alt="Kabak Çekirdeği">
       <div class="icerik"><h4>Kabak Çekirdeği</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Sarımsak Yağı', 'Zayıf saçları güçlendirmede mucizeler yaratır. Saç derisindeki zararlı bakterileri yok ederek sağlıklı büyümeyi başlatır.', '', 'YAG_RESIM_17')">
-      <img src="YAG_RESIM_17" alt="Sarımsak Yağı">
+    <div class="kart" onclick="openModal('Sarımsak Yağı', 'Zayıf saçları güçlendirmede mucizeler yaratır...', '', 'buraya')">
+      <img src="buraya" alt="Sarımsak Yağı">
       <div class="icerik"><h4>Sarımsak Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Nane Yağı', 'Mentol içeriğiyle anında ferahlık verir. Baş ağrısında şakaklara uygulandığında rahatlatır. Ciltteki kaşıntıyı keser.', '', 'YAG_RESIM_18')">
-      <img src="YAG_RESIM_18" alt="Nane Yağı">
+    <div class="kart" onclick="openModal('Nane Yağı', 'Mentol içeriğiyle anında ferahlık verir...', '', 'buraya')">
+      <img src="buraya" alt="Nane Yağı">
       <div class="icerik"><h4>Nane Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Limon Yağı', 'Doğal bir toniktir, cildi sıkılaştırır. C vitamini etkisiyle cildi aydınlatır. Yağlı ciltlerdeki parlamayı alır.', '', 'YAG_RESIM_19')">
-      <img src="YAG_RESIM_19" alt="Limon Yağı">
+    <div class="kart" onclick="openModal('Limon Yağı', 'Doğal bir toniktir, cildi sıkılaştırır...', '', 'buraya')">
+      <img src="buraya" alt="Limon Yağı">
       <div class="icerik"><h4>Limon Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Portakal Yağı', 'Cilde enerji ve canlılık verir. Selülit masajlarında en çok kullanılan yağdır çünkü lenf drenajını destekler.', '', 'YAG_RESIM_20')">
-      <img src="YAG_RESIM_20" alt="Portakal Yağı">
+    <div class="kart" onclick="openModal('Portakal Yağı', 'Cilde enerji ve canlılık verir...', '', 'buraya')">
+      <img src="buraya" alt="Portakal Yağı">
       <div class="icerik"><h4>Portakal Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Papatya Yağı', 'Hassas ve bebeksi ciltler için en nazik yağdır. Kızarıklık ve deri döküntülerinde sakinleştirici etki gösterir.', '', 'YAG_RESIM_21')">
-      <img src="YAG_RESIM_21" alt="Papatya Yağı">
+    <div class="kart" onclick="openModal('Papatya Yağı', 'Hassas ve bebeksi ciltler için en naziktir...', '', 'buraya')">
+      <img src="buraya" alt="Papatya Yağı">
       <div class="icerik"><h4>Papatya Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Okaliptüs Yağı', 'Ciltteki toksinleri atmaya yardımcı olur. Ferahlatıcı kokusu nefes yollarını açar. Kas ağrılarında rahatlatıcıdır.', '', 'YAG_RESIM_22')">
-      <img src="YAG_RESIM_22" alt="Okaliptüs">
+    <div class="kart" onclick="openModal('Okaliptüs Yağı', 'Ciltteki toksinleri atmaya yardımcı olur...', '', 'buraya')">
+      <img src="buraya" alt="Okaliptüs">
       <div class="icerik"><h4>Okaliptüs</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Keten Tohumu', 'Yüksek Omega-3 içeriğiyle cildi içeriden besler. Kronik cilt kuruluğuna karşı kalkan oluşturur. Tırnakları güçlendirir.', '', 'YAG_RESIM_23')">
-      <img src="YAG_RESIM_23" alt="Keten Tohumu">
+    <div class="kart" onclick="openModal('Keten Tohumu', 'Yüksek Omega-3 içeriğiyle besler...', '', 'buraya')">
+      <img src="buraya" alt="Keten Tohumu">
       <div class="icerik"><h4>Keten Tohumu</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Fındık Yağı', 'E vitamini ile cildi beslerken sıkılaştırıcı özellik gösterir. Gözenekleri küçültür ve cildi gerginleştirir.', '', 'YAG_RESIM_24')">
-      <img src="YAG_RESIM_24" alt="Fındık Yağı">
+    <div class="kart" onclick="openModal('Fındık Yağı', 'E vitamini ile cildi beslerken sıkılaştırır...', '', 'buraya')">
+      <img src="buraya" alt="Fındık Yağı">
       <div class="icerik"><h4>Fındık Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Ceviz Yağı', 'Yıpranmış saçları ve cildi onarır. Göz çevresi bakımında ince çizgilerin görünümünü azaltmak için kullanılır.', '', 'YAG_RESIM_25')">
-      <img src="YAG_RESIM_25" alt="Ceviz Yağı">
+    <div class="kart" onclick="openModal('Ceviz Yağı', 'Yıpranmış saçları ve cildi onarır...', '', 'buraya')">
+      <img src="buraya" alt="Ceviz Yağı">
       <div class="icerik"><h4>Ceviz Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Gül Yağı', 'Cildi yeniler, lekeleri açar ve ruhsal bir denge sağlar. Hücrelerin titreşimini artırarak cildi canlı tutar.', '', 'YAG_RESIM_26')">
-      <img src="YAG_RESIM_26" alt="Gül Yağı">
+    <div class="kart" onclick="openModal('Gül Yağı', 'Cildi yeniler, lekeleri açar...', '', 'buraya')">
+      <img src="buraya" alt="Gül Yağı">
       <div class="icerik"><h4>Gül Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Isırgan Tohumu', 'Saç köklerine oksijen taşınmasını artırır. Kepeklenmeyi durdurur ve saç tellerini kalınlaştırır.', '', 'YAG_RESIM_27')">
-      <img src="YAG_RESIM_27" alt="Isırgan Tohumu">
+    <div class="kart" onclick="openModal('Isırgan Tohumu', 'Saç köklerine oksijen taşınmasını artırır...', '', 'buraya')">
+      <img src="buraya" alt="Isırgan Tohumu">
       <div class="icerik"><h4>Isırgan Tohumu</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Defne Yağı', 'Ciltteki mantar ve bakterileri temizlemede uzmandır. Vücut masajında romatizmal ağrıları hafifletici etkisi vardır.', '', 'YAG_RESIM_28')">
-      <img src="YAG_RESIM_28" alt="Defne Yağı">
+    <div class="kart" onclick="openModal('Defne Yağı', 'Ciltteki mantar ve bakterileri temizler...', '', 'buraya')">
+      <img src="buraya" alt="Defne Yağı">
       <div class="icerik"><h4>Defne Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Soya Yağı', 'Cilt lekelerini açmada ve cildi güneşin zararlı etkilerine karşı savunmada etkilidir. Cilt bariyerini güçlendirir.', '', 'YAG_RESIM_29')">
-      <img src="YAG_RESIM_29" alt="Soya Yağı">
+    <div class="kart" onclick="openModal('Soya Yağı', 'Cilt lekelerini açmada etkilidir...', '', 'buraya')">
+      <img src="buraya" alt="Soya Yağı">
       <div class="icerik"><h4>Soya Yağı</h4></div>
     </div>
-    <div class="kart" onclick="openModal('Shea Yağı', 'En sert bölgeleri bile pamuk gibi yapar. Soğuk havada cildi tam koruma altına alır ve çatlak oluşumunu engeller.', '', 'YAG_RESIM_30')">
-      <img src="YAG_RESIM_30" alt="Shea Yağı">
+    <div class="kart" onclick="openModal('Shea Yağı', 'En sert bölgeleri bile pamuk gibi yapar...', '', 'buraya')">
+      <img src="buraya" alt="Shea Yağı">
       <div class="icerik"><h4>Shea Yağı</h4></div>
     </div>
   </div>
@@ -286,7 +286,6 @@
 <footer>&copy; Melde Naturale - Doğanın Saf Dokunuşu</footer>
 
 <script>
-// Baloncuklar - Siyah temaya uyarlandı
 const bubbleContainer = document.querySelector('.bg-mavi');
 const bubbles = [];
 class Bubble {
@@ -312,7 +311,7 @@ class Bubble {
     this.element.style.height = this.size + 'px';
     this.element.style.top = this.y + 'px';
     this.element.style.left = (this.x + xOffset) + 'px';
-    this.element.style.opacity = 0.3;
+    this.element.style.opacity = 0.5;
   }
 }
 for(let i=0; i<20; i++) bubbles.push(new Bubble());
@@ -322,7 +321,6 @@ function animate(){
 }
 animate();
 
-// Modal Fonksiyonu
 const modal = document.getElementById('infoModal');
 const mImg = document.getElementById('modalImg');
 const mTitle = document.getElementById('modalTitle');
@@ -333,9 +331,7 @@ function openModal(title, desc, price, img) {
   mTitle.innerText = title;
   mDesc.innerText = desc;
   
-  if(img && img !== '' && img.includes('RESIM')) {
-    mImg.style.display = 'none';
-  } else if(img) {
+  if(img && img !== '' && img !== 'buraya') {
     mImg.src = img;
     mImg.style.display = 'block';
   } else {
@@ -348,13 +344,11 @@ function openModal(title, desc, price, img) {
   } else {
     mPrice.style.display = 'none';
   }
-
   modal.style.display = 'flex';
 }
 
 function closeModal() { modal.style.display = 'none'; }
 window.onclick = function(e) { if(e.target == modal) closeModal(); }
 </script>
-
 </body>
 </html>
