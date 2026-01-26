@@ -30,14 +30,14 @@
   .carousel-track {
     display:flex; 
     width:calc(150px * 7); 
-    animation: scrollAlternate 10s ease-in-out infinite alternate;
+    animation: scrollAlternate 5s ease-in-out infinite alternate;
   }
   .slide {width:150px; height:180px; display:flex; align-items:center; justify-content:center; padding:10px;}
   .slide img {width:100%; border-radius:10px; height: 100%; object-fit: cover;}
   
   @keyframes scrollAlternate {
     0% { transform: translateX(0);} 
-    100% { transform: translateX(calc(-20px * 1)); }
+    100% { transform: translateX(calc(-50px * 1)); }
   }
   .carousel-container:hover .carousel-track {animation-play-state: paused;}
 
