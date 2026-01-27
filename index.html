@@ -38,7 +38,7 @@
   .carousel-track {
     display: flex; 
     width: max-content; /* Resimlerin toplam uzunluğu kadar genişler */
-    animation: scrollAlternate 12s ease-in-out infinite alternate;
+    animation: scrollAlternate 10s ease-in-out infinite alternate;
   }
   .slide {
     width: 180px; 
@@ -47,7 +47,7 @@
     align-items: center; 
     justify-content: center; 
     padding: 10px;
-    flex-shrink: 0; /* Mobilde resimlerin büzülmesini engeller */
+    flex-shrink: 0;
   }
   .slide img {
     width: 100%; 
@@ -56,11 +56,11 @@
     object-fit: cover;
   }
   
-/* 1000PX VE ÜZERİ - ÖNCEKİ GİBİ SABİT VEYA AZ KAYMA */
+/* 1000PX VE ÜZERİ - SABİT KAYMA */
   @media (min-width: 1001px) {
     @keyframes scrollAlternate {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-250px); }
+      100% { transform: translateX(-260px); }
     }
   }
 
