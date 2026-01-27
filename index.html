@@ -25,36 +25,46 @@
     font-size:3rem; 
   }
 
-  /* CAROUSEL - GİT GEL (ALTERNATE) MODU */
-  .carousel-container {margin:3rem auto; max-width:1000px; overflow:hidden; position:relative; border-radius:15px; background:white; padding:20px 0;}
+/* CAROUSEL - GÜNCELLENMİŞ GİT GEL */
+  .carousel-container {
+    margin: 3rem auto; 
+    max-width: 1000px; 
+    overflow: hidden; 
+    position: relative; 
+    border-radius: 15px; 
+    background: white; 
+    padding: 20px 0;
+  }
   .carousel-track {
-    display:flex; 
-    width:calc(150px * 7); 
-    animation: scrollAlternate 5s ease-in-out infinite alternate;
+    display: flex; 
+    width: max-content; /* Resimlerin toplam uzunluğu kadar genişler */
+    animation: scrollAlternate 12s ease-in-out infinite alternate;
   }
-  .slide {width:150px; height:180px; display:flex; align-items:center; justify-content:center; padding:10px;}
-  .slide img {width:100%; border-radius:10px; height: 100%; object-fit: cover;}
+  .slide {
+    width: 180px; 
+    height: 180px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 10px;
+    flex-shrink: 0; /* Mobilde resimlerin büzülmesini engeller */
+  }
+  .slide img {
+    width: 100%; 
+    height: 100%; 
+    border-radius: 10px; 
+    object-fit: cover;
+  }
   
+  /* EKRAN BOYUTUNA GÖRE OTOMATİK HESAPLANAN KAYMA */
   @keyframes scrollAlternate {
-    0% { transform: translateX(0);} 
-    100% { transform: translateX(calc(-50px * 1)); }
+    0% { transform: translateX(0); }
+    100% { 
+      /* İçeriğin sonundan ekran genişliğini çıkarıp o kadar kayar */
+      transform: translateX(calc(-100% + 100vw)); 
+    }
   }
-  .carousel-container:hover .carousel-track {animation-play-state: paused;}
-
-  /* SABUNLAR & YAĞLAR TASARIMI */
-  .section-container {padding:4rem 2rem; max-width:1100px; margin:2rem auto; position:relative; overflow:hidden; border-radius: 20px;}
-  .bg-mavi {background:rgba(128, 222, 234, 0.7);} /* MAVİ ARKA PLAN KORUNDU */
-  
-  h2 {text-align:center; color:#000; margin-bottom:2rem; font-size:2.5rem; position:relative; z-index:2;}
-  .grid-layout {display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; position:relative; z-index:1;}
-  
-  .kart {background:rgba(255,255,255,0.7); border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); overflow:hidden; transition:0.3s ease; cursor:pointer;}
-  .kart:hover {transform:translateY(-12px); box-shadow:0 12px 28px rgba(0,0,0,0.2);}
-  .kart img {width:100%; height:180px; object-fit:cover; border-bottom:3px solid #000;}
-  .kart .icerik {padding:1rem;}
-  .kart h3, .kart h4 {color:#000; margin-bottom:0.5rem;}
-  .kart .fiyat {font-weight:700; color:#000;}
-
+ 
   /* BALONCUKLAR */
   .bubble {position:absolute; border-radius:50%; pointer-events:none; z-index:0; background: rgba(255,255,255,0.8);}
 
