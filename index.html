@@ -56,12 +56,19 @@
     object-fit: cover;
   }
   
-  /* EKRAN BOYUTUNA GÖRE OTOMATİK HESAPLANAN KAYMA */
-  @keyframes scrollAlternate {
-    0% { transform: translateX(0); }
-    100% { 
-      /* İçeriğin sonundan ekran genişliğini çıkarıp o kadar kayar */
-      transform: translateX(calc(-100% + 80vw)); 
+/* 1000PX VE ÜZERİ - ÖNCEKİ GİBİ SABİT VEYA AZ KAYMA */
+  @media (min-width: 1001px) {
+    @keyframes scrollAlternate {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50px); }
+    }
+  }
+
+  /* 1000PX VE ALTI (TELEFON/TABLET) - SONUNA KADAR KAYMA */
+  @media (max-width: 1000px) {
+    @keyframes scrollAlternate {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-100% + 100vw)); }
     }
   }
 
@@ -103,7 +110,7 @@
 <body>
 
 <header>
-  <h1>Melde Naturale-19</h1>
+  <h1>Melde Naturale-20</h1>
   <nav>
     <a href="#hero">Anasayfa</a>
     <a href="#sabunlar">Sabunlar</a>
