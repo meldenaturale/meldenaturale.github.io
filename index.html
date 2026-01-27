@@ -73,48 +73,40 @@
   }
   .carousel-container:hover .carousel-track {animation-play-state: paused;}
 
-/* 600PX VE ÜZERİ (BÜYÜK EKRANLAR) - SENİN ORİJİNAL BOYUTLARIN */
-@media (min-width: 701px) {
+/* ARKA PLANIN GÖRÜNMESİ İÇİN GÜNCELLEME */
+.section-container {
+  padding: 4rem 2rem; 
+  max-width: 1100px; 
+  margin: 2rem auto; 
+  position: relative; 
+  overflow: hidden; 
+  border-radius: 20px;
+  min-height: 500px; /* İçerik az olsa bile mavi alanın görünmesi için */
+}
+
+.bg-mavi {
+  background: rgba(128, 222, 234, 0.7) !important; /* Rengin kesin görünmesi için */
+  display: block;
+}
+
+/* EKRAN BOYUTUNA GÖRE KARTLAR */
+@media (min-width: 651px) {
   .grid-layout {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
   }
-  .kart img {
-    height: 200px;
-  }
+  .kart img { height: 200px; }
 }
 
-/* 600PX VE ALTI (TELEFONLAR) - KÜÇÜLTÜLMÜŞ BOYUTLAR */
-@media (max-width: 700px) {
+@media (max-width: 650px) {
   .grid-layout {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 0.8rem;
   }
-  .kart img {
-    height: 120px; /* Mobilde daha da kibar durması için 120px yaptım */
-  }
-  .kart h3, .kart h4 {
-    font-size: 0.9rem; /* Mobilde başlıklar çok kaba durmasın */
-  }
+  .kart img { height: 120px; }
 }
-
-/* GENEL KART AYARLARI (Boyut dışındaki özellikler her iki ekran için aynı kalır) */
-.grid-layout { position: relative; z-index: 1; }
-.kart {
-  background: rgba(255,255,255,0.7);
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  overflow: hidden;
-  transition: 0.3s ease;
-  cursor: pointer;
-}
-.kart:hover { transform: translateY(-12px); box-shadow: 0 12px 28px rgba(0,0,0,0.2); }
-.kart img { width: 100%; object-fit: cover; border-bottom: 3px solid #000; }
-.kart .icerik { padding: 1rem; }
-.kart h3, .kart h4 { color: #000; margin-bottom: 0.5rem; }
-.kart .fiyat { font-weight: 700; color: #000; }
  
   /* BALONCUKLAR */
   .bubble {position:absolute; border-radius:50%; pointer-events:none; z-index:0; background: rgba(255,255,255,0.8);}
@@ -140,7 +132,7 @@
 <body>
 
 <header>
-  <h1>Melde Naturale-24</h1>
+  <h1>Melde Naturale-25</h1>
   <nav>
     <a href="#hero">Anasayfa</a>
     <a href="#sabunlar">Sabunlar</a>
