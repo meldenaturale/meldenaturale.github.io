@@ -73,19 +73,48 @@
   }
   .carousel-container:hover .carousel-track {animation-play-state: paused;}
 
- /* SABUNLAR & YAĞLAR TASARIMI */
-  .section-container {padding:4rem 2rem; max-width:1100px; margin:2rem auto; position:relative; overflow:hidden; border-radius: 20px;}
-  .bg-mavi {background:rgba(128, 222, 234, 0.7);} /* MAVİ ARKA PLAN KORUNDU */
-  
-  h2 {text-align:center; color:#000; margin-bottom:2rem; font-size:2.5rem; position:relative; z-index:2;}
-  .grid-layout {display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1rem; position:relative; z-index:1;}
-  
-  .kart {background:rgba(255,255,255,0.7); border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); overflow:hidden; transition:0.3s ease; cursor:pointer;}
-  .kart:hover {transform:translateY(-12px); box-shadow:0 12px 28px rgba(0,0,0,0.2);}
-  .kart img {width:100%; height:140px; object-fit:cover; border-bottom:3px solid #000;}
-  .kart .icerik {padding:1rem;}
-  .kart h3, .kart h4 {color:#000; margin-bottom:0.5rem;}
-  .kart .fiyat {font-weight:700; color:#000;}
+/* 600PX VE ÜZERİ (BÜYÜK EKRANLAR) - SENİN ORİJİNAL BOYUTLARIN */
+@media (min-width: 601px) {
+  .grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .kart img {
+    height: 180px;
+  }
+}
+
+/* 600PX VE ALTI (TELEFONLAR) - KÜÇÜLTÜLMÜŞ BOYUTLAR */
+@media (max-width: 600px) {
+  .grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.8rem;
+  }
+  .kart img {
+    height: 120px; /* Mobilde daha da kibar durması için 120px yaptım */
+  }
+  .kart h3, .kart h4 {
+    font-size: 0.9rem; /* Mobilde başlıklar çok kaba durmasın */
+  }
+}
+
+/* GENEL KART AYARLARI (Boyut dışındaki özellikler her iki ekran için aynı kalır) */
+.grid-layout { position: relative; z-index: 1; }
+.kart {
+  background: rgba(255,255,255,0.7);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.kart:hover { transform: translateY(-12px); box-shadow: 0 12px 28px rgba(0,0,0,0.2); }
+.kart img { width: 100%; object-fit: cover; border-bottom: 3px solid #000; }
+.kart .icerik { padding: 1rem; }
+.kart h3, .kart h4 { color: #000; margin-bottom: 0.5rem; }
+.kart .fiyat { font-weight: 700; color: #000; }
  
   /* BALONCUKLAR */
   .bubble {position:absolute; border-radius:50%; pointer-events:none; z-index:0; background: rgba(255,255,255,0.8);}
@@ -111,7 +140,7 @@
 <body>
 
 <header>
-  <h1>Melde Naturale-22</h1>
+  <h1>Melde Naturale-23</h1>
   <nav>
     <a href="#hero">Anasayfa</a>
     <a href="#sabunlar">Sabunlar</a>
