@@ -161,7 +161,7 @@
 <body>
 
 <header>
-  <h1>Melde Naturale-27</h1>
+  <h1>Melde Naturale-28</h1>
   <nav>
     <a href="#hero">Anasayfa</a>
     <a href="#sabunlar">Sabunlar</a>
@@ -187,10 +187,13 @@
 <section id="sabunlar" class="section-container bg-mavi">
   <h2>Sabun Çeşitlerimiz</h2>
   <div class="grid-layout">
-    <div class="kart" onclick="openModal('FİLTRESİZ GÜZELLİK ( Gözenek sıkılaştırıcı)', 'Bu sabun cildinizi derinlemesine temizlerken gözeneklerin sıkışmasına ve cildin daha gergin, canlı görünmesine yardımcı olur.<br>Özellikle yorgun, donuk ve sıkılaşma ihtiyacı duyan ciltler için mükemmeldir.<br>Yağlı ve karma ciltler için önerilir.<br>Düzenli kullanımda cildi kuruluk, matlık ve elastikiyet kaybına karşı korur. Üzüm çekirdeği yağının güçlü antioksidan etkisiyle cilt daha parlak, canlı ve genç görünür.<br>Üzüm çekirdeği yağı: Zengin antioksidan ve E vitamini içeriğiyle yaşlanma belirtilerini azaltır, cilde canlılık ve esneklik kazandırır.<br>Hint yağı: Saç, kaş ve kirpikleri güçlendirir, ciltte nem tutulumunu arttırır.<br>Shea yağı: Derin nem sağlar, cilt bariyerini güçlendirir ve tahrişi yatıştırır.<br>Hindistan cevizi yağı: Laurik asit içeriğiyle antimikrobiyal etki gösterir, cildi nemlendirir ve saçları onarır.<br>Zeytinyağı: Antioksidan zenginliğiyle cildi besler, nemlendirir ve saçları güçlendirir.<br>El yapımı %100 doğal<br>SLS, Paraben, boya, katkı maddesi ve kimyasal içermez.<br>Soğuk proses ile üretilerek yağların içeriği korunmuştur.<br>Islak cilde nazikçe masaj yaparak uygulayın. Düzenli kullanımda cildinizin daha nemli, canlı ve pürüzsüz göründüğünü fark edeceksiniz.', '300₺', 'https://i.ibb.co/yrTv775/d-zen-1.jpg')">
-      <img src="https://i.ibb.co/yrTv775/d-zen-1.jpg" alt="FİLTRESİZ GÜZELLİK ( Gözenek sıkılaştırıcı)">
-      <div class="icerik"><h3>1</h3><div class="fiyat">270₺</div></div>
-    </div>
+    <div class="kart" onclick="openModal('FİLTRESİZ GÜZELLİK (Gözenek sıkılaştırıcı)', 'Bu sabun cildinizi derinlemesine temizlerken gözeneklerin sıkışmasına ve cildin daha gergin, canlı görünmesine yardımcı olur.<br><br>Özellikle yorgun, donuk ve sıkılaşma ihtiyacı duyan ciltler için mükemmeldir.<br>Yağlı ve karma ciltler için önerilir.<br><br>Düzenli kullanımda cildi kuruluk, matlık ve elastikiyet kaybına karşı korur. Üzüm çekirdeği yağının güçlü antioksidan etkisiyle cilt daha parlak, canlı ve genç görünür.<br><br><b>İçerik:</b><br>• Üzüm çekirdeği yağı: Zengin antioksidan ve E vitamini içeriğiyle yaşlanma belirtilerini azaltır.<br>• Hint yağı: Saç, kaş ve kirpikleri güçlendirir.<br>• Shea yağı: Derin nem sağlar, cilt bariyerini güçlendirir.<br>• Hindistan cevizi yağı: Cildi nemlendirir ve onarır.<br>• Zeytinyağı: Cildi besler ve nemlendirir.<br><br><b>Özellikler:</b><br>• El yapımı %100 doğal<br>• SLS, Paraben, kimyasal içermez.<br>• Soğuk proses ile üretilmiştir.<br><br><b>Kullanım:</b><br>Islak cilde nazikçe masaj yaparak uygulayın.', '270₺', 'https://i.ibb.co/yrTv775/d-zen-1.jpg')">
+  <img src="https://i.ibb.co/yrTv775/d-zen-1.jpg" alt="FİLTRESİZ GÜZELLİK (Gözenek sıkılaştırıcı)">
+  <div class="icerik">
+    <h3>FİLTRESİZ GÜZELLİK</h3>
+    <div class="fiyat">270₺</div>
+  </div>
+</div>
     <div class="kart" onclick="openModal('Lavanta Sabunu', 'Gerçek lavanta yağı ve kurutulmuş lavanta çiçekleri...', '300₺', 'https://i.ibb.co/8gqky0yL/d-zen-2.jpg')">
       <img src="https://i.ibb.co/8gqky0yL/d-zen-2.jpg" alt="2">
       <div class="icerik"><h3>2</h3><div class="fiyat">300₺</div></div>
@@ -395,7 +398,7 @@ const mPrice = document.getElementById('modalPrice');
 
 function openModal(title, desc, price, img) {
   mTitle.innerText = title;
-  mDesc.innerText = desc;
+  mDesc.innerHTML = desc;
   
   if(img && img !== '' && img !== 'buraya') {
     mImg.src = img;
