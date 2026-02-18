@@ -28,25 +28,19 @@
   nav a {margin-left:1.5rem; font-weight:600; font-size:1rem; color:#000;}
 
   @media (max-width: 600px) {
-    header { flex-direction: column; padding: 10px; }
-    header h1 { margin-bottom: 8px; font-size: 1.2rem; }
-    nav { 
-      display: flex; 
-      flex-wrap: wrap; 
-      justify-content: center; 
-      width: 100%; 
-      gap: 5px; 
-    }
-    nav a { 
-      margin: 0 !important; 
-      flex: 0 0 46%; 
-      padding: 10px 0; 
-      background: rgba(0,0,0,0.05); 
-      border-radius: 5px; 
-      text-align: center; 
-      font-size: 0.85rem;
-    }
+  nav {
+    display: flex;
+    flex-wrap: wrap; /* Butonları alt satıra geçmeye zorlar */
+    justify-content: flex-end; /* Sağda kalmalarını sağlar */
+    gap: 5px;
+    max-width: 180px; /* Genişliği sınırlayarak 2x2 olmalarını sağlar */
   }
+  nav a {
+    margin: 0 !important;
+    flex: 0 0 45%; /* Yan yana ikişerli dizilmeleri için */
+    text-align: right;
+  }
+}
  
   /* PARALLAX - HERO */
   section.parallax {position:relative; background-attachment: fixed; background-position:center; background-repeat:no-repeat; background-size:cover; min-height:400px; display:flex; align-items:center; justify-content:center; color:white; text-shadow:1px 1px 6px rgba(0,0,0,0.7); font-size:2rem; font-weight:700;}
