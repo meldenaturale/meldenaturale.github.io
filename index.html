@@ -10,7 +10,6 @@
   
   /* SADECE YEŞİLLER SİYAHA ÇEVRİLDİ - MAVİLER KORUNDU */
   a { color:#000; text-decoration:none;}
-
 /* HEADER VE MOBİL MENÜ DÜZENİ */
   header {
     position: fixed; 
@@ -26,7 +25,6 @@
   }
   header h1 {font-weight:700; font-size:1.5rem; color:#000;}
   nav a {margin-left:1.5rem; font-weight:600; font-size:1rem; color:#000;}
-
   @media (max-width: 600px) {
   nav {
     display: flex;
@@ -49,6 +47,28 @@
     background-color: #000; 
     min-height:600px; 
     font-size:3rem; 
+  }
+
+  /* HAKKIMIZDA (YENİ EKLENEN BÖLÜM) */
+  #hakkimizda {
+    background: #fff;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  #hakkimizda .icerik-kapsayici {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  #hakkimizda h2 {
+    font-size: 2.2rem;
+    color: #000;
+    margin-bottom: 1.5rem;
+  }
+  #hakkimizda p {
+    font-size: 1.15rem;
+    color: #444;
+    line-height: 1.9;
+    margin-bottom: 1rem;
   }
 
 /* CAROUSEL - GÜNCELLENMİŞ GİT GEL */
@@ -89,7 +109,6 @@
       100% { transform: translateX(-260px); }
     }
   }
-
   /* 1000PX VE ALTI (TELEFON/TABLET) - SONUNA KADAR KAYMA */
   @media (max-width: 1000px) {
     @keyframes scrollAlternate {
@@ -98,7 +117,6 @@
     }
   }
   .carousel-container:hover .carousel-track {animation-play-state: paused;}
-
  
 /* Sabunlar -------------------------------------------------------*/
  
@@ -113,13 +131,11 @@
   /* Arka planın her durumda görünmesi için minimum yükseklik */
   min-height: 500px; 
 }
-
 /* ARKA PLANIN KESİN GÖRÜNMESİ İÇİN */
 .bg-mavi {
   background: rgba(128, 222, 234, 0.7) !important;
   display: block;
 }
-
 /* 600PX VE ÜZERİ (BÜYÜK EKRANLAR) - SENİN İSTEDİĞİN BOYUTLAR */
 @media (min-width: 601px) {
   .grid-layout {
@@ -131,7 +147,6 @@
     height: 200px;
   }
 }
-
 /* 600PX VE ALTI (TELEFONLAR) - KÜÇÜLTÜLMÜŞ BOYUTLAR */
 @media (max-width: 600px) {
   .grid-layout {
@@ -146,7 +161,6 @@
     font-size: 0.9rem;
   }
 }
-
 /* KART TASARIMI (SABİT ÖZELLİKLER) */
 .grid-layout { position: relative; z-index: 1; }
 .kart {
@@ -165,7 +179,6 @@
  
   /* BALONCUKLAR */
   .bubble {position:absolute; border-radius:50%; pointer-events:none; z-index:0; background: rgba(255,255,255,0.8);}
-
   /* MODAL */
   .modal {display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.8); align-items:center; justify-content:center;}
   .modal-content {background:#fff; padding:2.5rem; border-radius:15px; width:90%; max-width:600px; position:relative; max-height: 85vh; overflow-y: auto; animation: zoomIn 0.3s;}
@@ -175,28 +188,38 @@
   .modal-content h3 {color:#000; margin-bottom:1rem; font-size: 1.8rem;}
   .modal-content p {color:#444; font-size: 1.1rem; line-height: 1.8; text-align: justify;}
   .modal-content .fiyat {font-weight:700; color:#000; margin-top:1.5rem; font-size: 1.4rem; border-top: 1px solid #eee; padding-top: 1rem;}
-
   /* İLETİŞİM */
   section#iletisim {background:rgba(128, 222, 234, 0.7); color:#000; padding:4rem 1rem; text-align:center; font-weight: 600;}
   section#iletisim a {color:#000; text-decoration: underline;}
   footer {text-align:center; padding:1.5rem; background:#e0f2f1; color:#777;}
-
   @media (max-width:600px) { header h1 {font-size:1.1rem;} nav a {font-size:0.8rem; margin-left:0.7rem;} }
 </style>
 </head>
 <body>
-
 <header>
   <h1>Melde Naturale</h1>
   <nav>
     <a href="#hero">Anasayfa</a>
+    <a href="#hakkimizda">Hakkımızda</a>
     <a href="#sabunlar">Sabunlar</a>
     <a href="#yaglar">Yağlar</a>
     <a href="#iletisim">İletişim</a>
   </nav>
 </header>
-
 <section id="hero" class="parallax">Doğanın Saflığını Hissedin</section>
+
+<!-- YENİ EKLENEN BÖLÜM -->
+<section id="hakkimizda">
+  <div class="icerik-kapsayici">
+    <h2>Doğanın Kalbinden Cildinize...</h2>
+    <p>
+      Melde Naturale olarak, doğanın bize sunduğu en saf şifayı sizinle buluşturuyoruz. Özenle hazırladığımız <strong>8 çeşit sabunumuz, rahatlatıcı masaj yağımız, besleyici tırnak bakım yağımız ve yoğun bakım kremimizin</strong> en büyük ortak özelliği tamamen doğal içerikli olmalarıdır. 
+    </p>
+    <p>
+      Ürünlerimizde hiçbir renklendirici, yapay esans veya katkı maddesi kullanmıyoruz. Gördüğünüz o güzel renkler ve hissettiğiniz eşsiz kokular, formülümüzde yer alan saf bitkisel yağların tamamen kendi doğal yapısından gelmektedir. Kimyasallardan uzak, doğanın gerçek şifasını cildinizde hissedeceğiniz tertemiz bir bakım deneyimine davetlisiniz.
+    </p>
+  </div>
+</section>
 
 <div class="carousel-container">
   <div class="carousel-track">
@@ -209,7 +232,6 @@
     <div class="slide"><img src="https://i.ibb.co/vvszfvQX/d-zen-kule-7.jpg" alt=""></div>
   </div>
 </div>
-
 <section id="sabunlar" class="section-container bg-mavi">
   <h2>Sabun Çeşitlerimiz</h2>
   <div class="grid-layout">
@@ -264,7 +286,6 @@
 </div>
   </div>
 </section>
-
 <section id="yaglar" class="section-container">
   <h2>Kullandığımız Doğal Yağlar</h2>
   <div class="grid-layout">
@@ -378,14 +399,12 @@
     </div>
   </div>
 </section>
-
 <section id="iletisim">
   <h2>Bizimle İletişime Geçin</h2>
   <p>Her türlü sorunuz ve siparişiniz için buradayız:</p><br>
   <p><a href="mailto:meldenaturale@hotmail.com">meldenaturale@hotmail.com</a></p>
   <p>WhatsApp & Telefon: +90 554 600 40 00</p>
 </section>
-
 <div id="infoModal" class="modal">
   <div class="modal-content">
     <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -395,9 +414,7 @@
     <div id="modalPrice" class="fiyat"></div>
   </div>
 </div>
-
 <footer>&copy; Melde Naturale - Doğanın Saf Dokunuşu</footer>
-
 <script>
 const bubbleContainer = document.querySelector('.bg-mavi');
 const bubbles = [];
@@ -433,13 +450,11 @@ function animate(){
   requestAnimationFrame(animate);
 }
 animate();
-
 const modal = document.getElementById('infoModal');
 const mImg = document.getElementById('modalImg');
 const mTitle = document.getElementById('modalTitle');
 const mDesc = document.getElementById('modalDesc');
 const mPrice = document.getElementById('modalPrice');
-
 function openModal(title, desc, price, img) {
   mTitle.innerText = title;
   mDesc.innerHTML = desc;
@@ -450,7 +465,6 @@ function openModal(title, desc, price, img) {
   } else {
     mImg.style.display = 'none';
   }
-
   if(price && price !== '') {
     mPrice.innerText = "Fiyat: " + price;
     mPrice.style.display = 'block';
@@ -459,7 +473,6 @@ function openModal(title, desc, price, img) {
   }
   modal.style.display = 'flex';
 }
-
 function closeModal() { modal.style.display = 'none'; }
 window.onclick = function(e) { if(e.target == modal) closeModal(); }
 </script>
