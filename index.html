@@ -203,6 +203,91 @@
   section#iletisim h2 { font-size: 2.2rem; margin-bottom: 1rem; }
   section#iletisim a {color:#000; text-decoration: underline;}
   footer {text-align:center; padding:1.5rem; background:#e0f2f1; color:#777; font-size: 1rem;}
+  
+  /* WHATSAPP WIDGET */
+  #wa-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .wa-button {
+    background-color: #25D366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+  }
+  .wa-button:hover {
+    transform: scale(1.1);
+  }
+  #wa-box {
+    display: none;
+    width: 300px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+    overflow: hidden;
+    flex-direction: column;
+    animation: zoomIn 0.3s;
+  }
+  .wa-header {
+    background: #075E54;
+    color: #fff;
+    padding: 15px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+  .wa-close {
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+  .wa-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  #wa-message {
+    width: 100%;
+    resize: none;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+  }
+  #wa-message:focus {
+    border-color: #25D366;
+  }
+  .wa-body button {
+    background: #25D366;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .wa-body button:hover {
+    background: #128C7E;
+  }
+
   @media (max-width:600px) { header h1 {font-size:1.4rem;} }
 </style>
 </head>
@@ -243,7 +328,7 @@
   </div>
 </section>
 
-<div class="carousel-container">
+<div class="carousel-container" id="galeri">
   <div class="carousel-track">
     <div class="slide"><img src="https://i.ibb.co/dwYgcKCW/d-zen-kule-1.jpg" alt=""></div>
     <div class="slide"><img src="https://i.ibb.co/pjZKTFBP/d-zen-kule-2.jpg" alt=""></div>
@@ -473,6 +558,24 @@
   <p><a href="mailto:meldenaturale@hotmail.com">meldenaturale@hotmail.com</a></p>
   <p>WhatsApp & Telefon: +90 554 600 40 00</p>
 </section>
+
+<!-- WHATSAPP WIDGET -->
+<div id="wa-widget">
+  <div id="wa-box">
+    <div class="wa-header">
+      <span>Bize Yazın</span>
+      <span class="wa-close" onclick="toggleWaBox()">&times;</span>
+    </div>
+    <div class="wa-body">
+      <textarea id="wa-message" rows="3" placeholder="Merhaba, bilgi almak istiyorum..."></textarea>
+      <button onclick="sendWaMessage()">Gönder</button>
+    </div>
+  </div>
+  <div class="wa-button" onclick="toggleWaBox()">
+    <svg viewBox="0 0 32 32" width="35" height="35" fill="white"><path d="M16.002 0h-.004C7.164 0 0 7.164 0 16.002c0 2.802.724 5.518 2.098 7.92L.47 29.84l6.074-1.594A15.908 15.908 0 0016.002 32c8.834 0 16-7.164 16-16.002S24.836 0 16.002 0zm0 29.352c-2.358 0-4.664-.606-6.686-1.75l-.48-.28-4.96 1.302 1.32-4.834-.308-.49A13.254 13.254 0 012.648 16.002c0-7.374 5.996-13.37 13.354-13.37s13.352 5.996 13.352 13.37-5.994 13.35-13.352 13.35z"/><path d="M21.05 18.064c-.276-.14-1.636-.806-1.89-8.98-.254-.176-.582-.176-.828.14-.246.314-.946 1.22-1.16 1.472-.216.252-.432.28-.708.14-.276-.14-1.168-.43-2.226-1.206-.822-.604-1.378-1.35-1.54-1.602-.16-.252-.018-.388.12-.526.126-.124.276-.32.414-.48.14-.16.186-.276.28-.46.092-.184.046-.346-.022-.486-.07-.14-.622-1.5-.852-2.054-.224-.54-.452-.466-.622-.474-.16-.008-.344-.01-.53-.01-.184 0-.482.07-.736.346-.254.276-.966.944-.966 2.304s.99 2.674 1.128 2.858c.14.184 1.948 2.97 4.716 4.134 2.768 1.164 2.768.776 3.276.73.508-.046 1.636-.668 1.866-1.314.23-.646.23-1.2.16-1.314-.07-.116-.254-.186-.53-.326z"/></svg>
+  </div>
+</div>
+
 <div id="infoModal" class="modal">
   <div class="modal-content">
     <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -543,6 +646,24 @@ function openModal(title, desc, price, img) {
 }
 function closeModal() { modal.style.display = 'none'; }
 window.onclick = function(e) { if(e.target == modal) closeModal(); }
+
+/* WHATSAPP WIDGET KODLARI */
+function toggleWaBox() {
+  const waBox = document.getElementById('wa-box');
+  waBox.style.display = (waBox.style.display === 'flex') ? 'none' : 'flex';
+}
+function sendWaMessage() {
+  const msg = document.getElementById('wa-message').value;
+  const phone = '905546004000'; // Telefon numaranız
+  if(msg.trim() !== '') {
+    // Mobil ve bilgisayarda WhatsApp'a yönlendiren API
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    toggleWaBox();
+    document.getElementById('wa-message').value = '';
+  } else {
+    alert("Lütfen bir mesaj yazın.");
+  }
+}
 </script>
 </body>
 </html>
