@@ -5,8 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Melde Naturale | Doğalın Kalbi</title>
 <style>
-  * { box-sizing: border-box; margin:0; padding:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth;}
-  body { background: #f0f8ff; color:#333; line-height:1.6; overflow-x:hidden;}
+  /* EL YAZISI FONTU EKLENDİ */
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+
+  * { box-sizing: border-box; margin:0; padding:0; font-family: 'Caveat', cursive; scroll-behavior: smooth;}
+  /* Font boyutu el yazısına uygun olarak hafifçe büyütüldü */
+  body { background: #f0f8ff; color:#333; line-height:1.6; overflow-x:hidden; font-size: 1.3rem;}
   
   /* SADECE YEŞİLLER SİYAHA ÇEVRİLDİ - MAVİLER KORUNDU */
   a { color:#000; text-decoration:none;}
@@ -23,30 +27,30 @@
     justify-content:space-between; 
     align-items:center;
   }
-  header h1 {font-weight:700; font-size:1.5rem; color:#000;}
-  nav a {margin-left:1.5rem; font-weight:600; font-size:1rem; color:#000;}
+  header h1 {font-weight:700; font-size:2rem; color:#000;}
+  nav a {margin-left:1.5rem; font-weight:600; font-size:1.4rem; color:#000;}
   @media (max-width: 600px) {
   nav {
     display: flex;
-    flex-wrap: wrap; /* Butonları alt satıra geçmeye zorlar */
-    justify-content: flex-end; /* Sağda kalmalarını sağlar */
+    flex-wrap: wrap; 
+    justify-content: flex-end; 
     gap: 5px;
-    max-width: 180px; /* Genişliği sınırlayarak 2x2 olmalarını sağlar */
+    max-width: 200px; 
   }
   nav a {
     margin: 0 !important;
-    flex: 0 0 45%; /* Yan yana ikişerli dizilmeleri için */
+    flex: 0 0 45%; 
     text-align: right;
   }
 }
  
   /* PARALLAX - HERO */
-  section.parallax {position:relative; background-attachment: fixed; background-position:center; background-repeat:no-repeat; background-size:cover; min-height:400px; display:flex; align-items:center; justify-content:center; color:white; text-shadow:1px 1px 6px rgba(0,0,0,0.7); font-size:2rem; font-weight:700;}
+  section.parallax {position:relative; background-attachment: fixed; background-position:center; background-repeat:no-repeat; background-size:cover; min-height:400px; display:flex; align-items:center; justify-content:center; color:white; text-shadow:1px 1px 6px rgba(0,0,0,0.7); font-weight:700;}
   #hero {
     background-image: url('https://i.ibb.co/Zp396p4t/toplu.png'); 
     background-color: #000; 
     min-height:600px; 
-    font-size:3rem; 
+    font-size:4rem; 
   }
 
   /* HAKKIMIZDA (YENİ EKLENEN BÖLÜM) */
@@ -60,14 +64,14 @@
     margin: 0 auto;
   }
   #hakkimizda h2 {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
     color: #000;
     margin-bottom: 1.5rem;
   }
   #hakkimizda p {
-    font-size: 1.15rem;
+    font-size: 1.5rem;
     color: #444;
-    line-height: 1.9;
+    line-height: 1.8;
     margin-bottom: 1.2rem;
   }
 
@@ -83,7 +87,7 @@
   }
   .carousel-track {
     display: flex; 
-    width: max-content; /* Resimlerin toplam uzunluğu kadar genişler */
+    width: max-content; 
     animation: scrollAlternate 10s ease-in-out infinite alternate;
   }
   .slide {
@@ -128,15 +132,19 @@
   position: relative; 
   overflow: hidden; 
   border-radius: 20px;
-  /* Arka planın her durumda görünmesi için minimum yükseklik */
   min-height: 500px; 
+}
+.section-container h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 /* ARKA PLANIN KESİN GÖRÜNMESİ İÇİN */
 .bg-mavi {
   background: rgba(128, 222, 234, 0.7) !important;
   display: block;
 }
-/* 600PX VE ÜZERİ (BÜYÜK EKRANLAR) - SENİN İSTEDİĞİN BOYUTLAR */
+/* 600PX VE ÜZERİ (BÜYÜK EKRANLAR) */
 @media (min-width: 601px) {
   .grid-layout {
     display: grid;
@@ -147,7 +155,7 @@
     height: 200px;
   }
 }
-/* 600PX VE ALTI (TELEFONLAR) - KÜÇÜLTÜLMÜŞ BOYUTLAR */
+/* 600PX VE ALTI (TELEFONLAR) */
 @media (max-width: 600px) {
   .grid-layout {
     display: grid;
@@ -158,7 +166,7 @@
     height: 120px;
   }
   .kart h3, .kart h4 {
-    font-size: 0.9rem;
+    font-size: 1.2rem !important;
   }
 }
 /* KART TASARIMI (SABİT ÖZELLİKLER) */
@@ -174,8 +182,8 @@
 .kart:hover { box-shadow: 0 12px 28px rgba(0,0,0,0.2); }
 .kart img { width: 100%; object-fit: cover; border-bottom: 3px solid #000; }
 .kart .icerik { padding: 1rem; }
-.kart h3, .kart h4 { color: #000; margin-bottom: 0.5rem; }
-.kart .fiyat { font-weight: 700; color: #000; }
+.kart h3, .kart h4 { color: #000; margin-bottom: 0.5rem; font-size: 1.5rem; }
+.kart .fiyat { font-weight: 700; color: #000; font-size: 1.3rem; }
  
   /* BALONCUKLAR */
   .bubble {position:absolute; border-radius:50%; pointer-events:none; z-index:0; background: rgba(255,255,255,0.8);}
@@ -185,14 +193,15 @@
   @keyframes zoomIn { from {transform: scale(0.8); opacity:0;} to {transform: scale(1); opacity:1;} }
   .close-btn {position:absolute; top:15px; right:20px; font-size:2rem; cursor:pointer; color:#000;}
   .modal-content img {width:100%; border-radius:10px; margin-bottom:1.5rem; height: 300px; object-fit: cover;}
-  .modal-content h3 {color:#000; margin-bottom:1rem; font-size: 1.8rem;}
-  .modal-content p {color:#444; font-size: 1.1rem; line-height: 1.8; text-align: justify;}
-  .modal-content .fiyat {font-weight:700; color:#000; margin-top:1.5rem; font-size: 1.4rem; border-top: 1px solid #eee; padding-top: 1rem;}
+  .modal-content h3 {color:#000; margin-bottom:1rem; font-size: 2.2rem;}
+  .modal-content p {color:#444; font-size: 1.4rem; line-height: 1.6; text-align: justify;}
+  .modal-content .fiyat {font-weight:700; color:#000; margin-top:1.5rem; font-size: 1.8rem; border-top: 1px solid #eee; padding-top: 1rem;}
   /* İLETİŞİM */
   section#iletisim {background:rgba(128, 222, 234, 0.7); color:#000; padding:4rem 1rem; text-align:center; font-weight: 600;}
+  section#iletisim h2 { font-size: 2.8rem; margin-bottom: 1rem; }
   section#iletisim a {color:#000; text-decoration: underline;}
-  footer {text-align:center; padding:1.5rem; background:#e0f2f1; color:#777;}
-  @media (max-width:600px) { header h1 {font-size:1.1rem;} nav a {font-size:0.8rem; margin-left:0.7rem;} }
+  footer {text-align:center; padding:1.5rem; background:#e0f2f1; color:#777; font-size: 1.2rem;}
+  @media (max-width:600px) { header h1 {font-size:1.6rem;} nav a {font-size:1.2rem; margin-left:0.7rem;} }
 </style>
 </head>
 <body>
@@ -208,7 +217,7 @@
 </header>
 <section id="hero" class="parallax">Doğanın Saflığını Hissedin</section>
 
-<!-- YENİ EKLENEN BÖLÜM -->
+<!-- HAKKIMIZDA -->
 <section id="hakkimizda">
   <div class="icerik-kapsayici">
     <h2>Gerçek Şifanın Formülü</h2>
